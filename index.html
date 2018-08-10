@@ -65,6 +65,7 @@ function handleSignOutClick() {
 }
 
 function respond(result){
+  document.getElementById("Spieler").innerHTML = "hi";
   var div = document.getElementById("Spieler");
   if(result.values.length > 0){
     var text ="";
