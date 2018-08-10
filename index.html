@@ -71,7 +71,7 @@ function respond(result){
 
     for(var rows = 0; rows<result.values.length;rows++){
       div += "<tr>";
-      for (var cols = 0; cols < array.length; cols++) {
+      for (var cols = 0; cols < result.values.length; cols++) {
         div += '<th>' + result.values[rows][cols] + '</th>';
       }
       div += "</tr>";
