@@ -65,7 +65,6 @@ function handleSignOutClick() {
 }
 
 function respond(result){
-  document.getElementById("Spieler").innerHTML = "hi";
   var div = document.getElementById("Spieler");
   if(result.values.length > 0){
     var text ="";
@@ -75,7 +74,6 @@ function respond(result){
       text += "<tr>";
       for (var cols = 0; cols < result.values.length; cols++) {
         text += '<th>'  ;
-        text += rows + cols;
         text += result.values[rows][cols];
         text += '</th>';
       }
@@ -85,6 +83,7 @@ function respond(result){
     div.innerHTML = text;
   }
 }
+  
 window.onload = function(){
   handleSignInClick();
 }
