@@ -65,21 +65,25 @@ function handleSignOutClick() {
 }
 
 function respond(result){
-  var div = document.getElementById("Spieler").innerHTML;
+  var div = document.getElementById("Spieler");
   if(result.values.length > 0){
-    div += "<table style='width:100%''>";
+    var text ="";
+    text += "<table style='width:100%''>";
 
     for(var rows = 0; rows<result.values.length;rows++){
-      div += "<tr>";
+      text += "<tr>";
       for (var cols = 0; cols < result.values.length; cols++) {
-        div += '<th>' + result.values[rows][cols] + '</th>';
+        text += '<th>'  ;
+        text += rows + cols;
+        text += result.values[rows][cols];
+        text += '</th>';
       }
-      div += "</tr>";
+      text += "</tr>";
     }
-    div += "</table>";
+    text += "</table>";
+    div.innerHTML = text;
   }
 }
-
 window.onload = function(){
   handleSignInClick();
 }
