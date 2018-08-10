@@ -68,9 +68,9 @@ function respond(result){
   var div = document.getElementById("Spieler");
   if(result.values.length > 0){
     var text ="";
-    text += "<table style='width:100%''>";
+    text += "<table style='width:100%; height:100%;'>";
 
-    for(var rows = 0; rows<result.values.length;rows++){
+    for(var rows = 0; rows<4;rows++){
       text += "<tr>";
       for (var cols = 0; cols < result.values.length; cols++) {
         text += '<th>'  ;
