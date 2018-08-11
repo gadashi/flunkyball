@@ -3,7 +3,7 @@
 //Client secret:1bYKj5bZZtcInTejJgB3ujDU
 //API key: AIzaSyAh2TO5vxJchkAKTL_dyIR7yOmfzrNpC5k
 //Table Id: 1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4
-var result;
+var result1;
 function makeApiCall() {
   var params = {
     spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',
@@ -17,7 +17,7 @@ function makeApiCall() {
     // TODO: Change code below to process the `response` object:
     console.log(response.result);
     respond(response.result);
-    result = response.result;
+    result1 = response.result;
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });
@@ -96,24 +96,24 @@ function respond(result){
 }
 
 function buttonExpand(){
+  console.log(result1;
   var div = document.getElementById("Spieler");
-  if(result.values.length > 0){
+  if(result1.values.length > 0){
     var text ="";
     text += "<table style='width:100%; height:100%;'>";
 
-    for(var rows = 0; rows<result.values[0].length;rows++){
+    for(var rows = 0; rows<result1.values[0].length;rows++){
       text += "<tr>";
       div.height += 50;
       for (var cols = 0; cols < 10; cols++) {
         text += '<th>'  ;
-        text += result.values[rows][cols];
+        text += result1.values[rows][cols];
         text += '</th>';
       }
       text += "</tr>";
     }
     text += "</table>";
     div.innerHTML = text;
-
   }
 }
 
