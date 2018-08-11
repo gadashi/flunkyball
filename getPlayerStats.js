@@ -76,6 +76,22 @@ function respond(result){
     }
     text += "</table>";
     div.innerHTML = text;
+    
+      var div = document.getElementById("Spiele");
+      var text ="";
+      text += "<table style='width:100%; height:100%;'>";
+
+      for(var rows = 10; rows<31;rows++){
+        text += "<tr>";
+        for (var cols = 0; cols < result.values.length; cols++) {
+          text += '<th>'  ;
+          text += result.values[rows][cols];
+          text += '</th>';
+        }
+        text += "</tr>";
+      }
+      text += "</table>";
+      div.innerHTML = text;
   }
 }
 
