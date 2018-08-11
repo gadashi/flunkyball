@@ -67,7 +67,7 @@ function respond(result){
 
     for(var rows = 0; rows<4;rows++){
       text += "<tr>";
-      for (var cols = 0; cols < result.values[0].length; cols++) {
+      for (var cols = 0; cols <10; cols++) {
         text += '<th>'  ;
         text += result.values[rows][cols];
         text += '</th>';
