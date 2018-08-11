@@ -81,9 +81,9 @@ function respond(result){
       var text ="";
       text += "<table style='width:100%; height:100%;'>";
 
-      for(var rows = 10; rows<31;rows++){
+      for(var rows = 0; rows<result.values.length;rows++){
         text += "<tr>";
-        for (var cols = 0; cols < result.values.length; cols++) {
+        for (var cols = 10; cols < 30; cols++) {
           text += '<th>'  ;
           text += result.values[rows][cols];
           text += '</th>';
