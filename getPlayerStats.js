@@ -96,7 +96,7 @@ function respond(result){
 }
 
 function buttonExpand(){
-  console.log(result1;
+  console.log(result1);
   var div = document.getElementById("Spieler");
   if(result1.values.length > 0){
     var text ="";
