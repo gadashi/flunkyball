@@ -98,7 +98,7 @@ function buttonExpand(){
     text += "</table>";
     div.innerHTML = text;
 
-
+  }
 }
 
 window.onload = function(){
