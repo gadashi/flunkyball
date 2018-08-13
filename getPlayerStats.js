@@ -60,14 +60,20 @@ function handleSignOutClick() {
 }
 
 function respond(result){
-  var div = document.getElementById("Spieler");
   if(result.values.length > 0){
+      respondPlayer(result);
+      respondGames(result);
+  }
+}
+
+function respondPlayer(result){
+  var div = document.getElementById("Spieler");
     var text ="";
     text += "<table style='width:100%; height:100%;'>";
 
     for(var rows = 0; rows<4;rows++){
       text += "<tr>";
-      for (var cols = 0; cols <10; cols++) {
+      for (var cols = 0; cols < 10; cols++) {
         text += '<th>'  ;
         text += result.values[rows][cols];
         text += '</th>';
@@ -76,23 +82,24 @@ function respond(result){
     }
     text += "</table>";
     div.innerHTML = text;
-    
-      var div = document.getElementById("Spiele");
-      var text ="";
-      text += "<table style='width:100%; height:100%;'>";
 
-      for(var rows = 0; rows<4;rows++){
-        text += "<tr>";
-        for (var cols = 10; cols < 30; cols++) {
-          text += '<th>'  ;
-          text += result.values[rows][cols];
-          text += '</th>';
-        }
-        text += "</tr>";
+}
+function respondGames(result){
+  var div = document.getElementById("Spiele");
+    var text ="";
+    text += "<table style='width:100%; height:100%;'>";
+
+    for(var rows = 0; rows<4;rows++){
+      text += "<tr>";
+      for (var cols = 10; cols < 30; cols++) {
+        text += '<th>'  ;
+        text += result.values[rows][cols];
+        text += '</th>';
       }
-      text += "</table>";
-      div.innerHTML = text;
-  }
+      text += "</tr>";
+    }
+    text += "</table>";
+    div.innerHTML = text;
 }
 
 function buttonExpand(){
@@ -104,7 +111,6 @@ function buttonExpand(){
     for(var rows = 0; rows < result1.values.length ;rows++){
       text += "<tr>";
       div.style.height += 50;
-      div.style.display = 'block';
       for (var cols = 0; cols < 10; cols++) {
         text += '<th>';
         text += result1.values[rows][cols];
