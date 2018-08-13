@@ -87,6 +87,29 @@ function handleSignOutClick() {
   gapi.auth2.getAuthInstance().signOut();
 }
 
+function selectPlayers(PlayerID){
+  //Players
+  var selectedPosition = [];
+  if(PlayerID < 20){
+    div=document.getElementById("PlayerSelection1");
+  }
+  else{
+    div=document.getElementById("PlayerSelection2");
+  }
+  var text="";
+  for(var rows = 0; rows < Players.values.length; rows++;){
+    text += "<button class='playerCoices'>" +
+    Players.values[rows][0] + "</button>";
+    var k = rows;
+    if(PlayerID > 20){
+      k += 5;
+    }
+    selectedPosition[k] = Players.values[rows][0];
+  }
+  console.log(selectedPosition);
+  div.style.display  = "block";
+  div.innerHTML = text;
+}
 
 function activeGames(result){
   var div = document.getElementById("activeGames");
