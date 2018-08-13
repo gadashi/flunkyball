@@ -16,10 +16,10 @@ function read(source) {
     // TODO: Change code below to process the `response` object:
     console.log(response.result);
     if(source=="Tabellenblatt1"){
-
+      Players = response.result;
     }
     else if(source=="Spiele"){
-
+        activeGames(response.result);
     }
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
@@ -87,15 +87,17 @@ function handleSignOutClick() {
   gapi.auth2.getAuthInstance().signOut();
 }
 
-function players(result){
-
-}
 
 function activeGames(result){
+  for(var i = 0;  i<result.values.length; i += 4){
+    var div = document.getElementById("activeGames");
+    var text ="";
+    text += "<a href='javascript:sendData(" + i + ");'>" +
+            result.values[i+3][0] + "gegen" + result.values[i+3][6];
+    //window.location = "passdata2b.html?" + packed;
 
+  }
 }
-
-
 
 window.onload = function(){
   handleSignInClick();
