@@ -93,7 +93,8 @@ function activeGames(result){
     var div = document.getElementById("activeGames");
     var text ="";
     text += "<a href='javascript:sendData(" + i + ");'>" +
-            result.values[i+3][0] + "gegen" + result.values[i+3][6];
+            result.values[i+3][0] + "gegen" + result.values[i+3][6]+
+            "</a>";;
     //window.location = "passdata2b.html?" + packed;
 
   }
