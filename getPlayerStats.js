@@ -106,6 +106,7 @@ function buttonExpand(){
       text += "<tr>";
       div.height += 50;
       for (var cols = 0; cols < 10; cols++) {
+        console.log(rows, cols);
         text += '<th>'  ;
         text += result1.values[rows][cols];
         text += '</th>';
