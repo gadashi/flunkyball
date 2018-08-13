@@ -50,6 +50,11 @@ h1{
 .Box:hover{
   background-color: lightgrey;
 }
+.hidden{
+  display:none;
+  position: absolute;
+  z-index: 2;
+}
 #beginButton{
   margin: 30px;
   width:200px;
