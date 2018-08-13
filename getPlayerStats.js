@@ -96,18 +96,17 @@ function respond(result){
 }
 
 function buttonExpand(){
-  console.log(result1);
   var div = document.getElementById("Spieler");
   if(result1.values.length > 0){
     var text ="";
     text += "<table style='width:100%; height:100%;'>";
 
-    for(var rows = 0; rows<result1.values.length;rows++){
+    for(var rows = 0; rows < result1.values.length ;rows++){
       text += "<tr>";
       div.style.height += 50;
+      div.style.display = block;
       for (var cols = 0; cols < 10; cols++) {
-        console.log(rows, cols);
-        text += '<th>'  ;
+        text += '<th>';
         text += result1.values[rows][cols];
         text += '</th>';
       }
