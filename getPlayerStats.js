@@ -102,7 +102,7 @@ function buttonExpand(){
     var text ="";
     text += "<table style='width:100%; height:100%;'>";
 
-    for(var rows = 0; rows<result1.values[0].length;rows++){
+    for(var rows = 0; rows<result1.values.length;rows++){
       text += "<tr>";
       div.height += 50;
       for (var cols = 0; cols < 10; cols++) {
