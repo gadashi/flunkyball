@@ -104,7 +104,7 @@ function buttonExpand(){
     for(var rows = 0; rows < result1.values.length ;rows++){
       text += "<tr>";
       div.style.height += 50;
-      div.style.display = block;
+      div.style.display = 'block';
       for (var cols = 0; cols < 10; cols++) {
         text += '<th>';
         text += result1.values[rows][cols];
