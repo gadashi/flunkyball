@@ -1,0 +1,16 @@
+<html>
+<head>
+
+</head>
+<body>
+<script>
+var query = window.location.search;
+  // Skip the leading ?, which should always be there,
+  // but be careful anyway
+  if (query.substring(0, 1) == '?') {
+    query = query.substring(1);
+  }
+  document.write("active game #" + query);
+ </script>
+</body>
+</html>
