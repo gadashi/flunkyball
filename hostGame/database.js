@@ -94,10 +94,9 @@ function activeGames(result){
     var text ="";
     text += "<a href='javascript:sendData(" + i + ");'>" +
             result.values[i+3][0] + "gegen" + result.values[i+3][6]+
-            "</a>";;
-    //window.location = "passdata2b.html?" + packed;
-    div.innerHTML = text;
+            "</a><br>";   
   }
+  div.innerHTML = text;
 }
 
 window.onload = function(){
