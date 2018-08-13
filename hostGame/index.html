@@ -27,25 +27,28 @@ Aktives Spiel weiterspielen
 <div class="main">
 Neues Spiel
 <div class="teams">
-  Team 1: &ensp; (<input class="teamname" placeholder="eigener Teamname">)
+  Team 1: &ensp; (<input id="teamname1" class="teamname" placeholder="eigener Teamname">)
   <div class="player">
-    <button class="Box" id="t11"> + </button>
-    <button class="Box" id="t12"> + </button>
-    <button class="Box" id="t13"> + </button>
-    <button class="Box" id="t14"> + </button>
-    <button class="Box" id="t15"> + </button>
+    <div id="PlayerSelection1" class="hidden"></div>
+    <button class="Box" id="t11" onclick="selectPlayers(11)"> + </button>
+    <button class="Box" id="t12" onclick="selectPlayers(12)"> + </button>
+    <button class="Box" id="t13" onclick="selectPlayers(13)"> + </button>
+    <button class="Box" id="t14" onclick="selectPlayers(14)"> + </button>
+    <button class="Box" id="t15" onclick="selectPlayers(15)"> + </button>
 
 
   </div>
-  Team 2:  &ensp; (<input class="teamname" placeholder="eigener Teamname">)
+  Team 2:  &ensp; (<input id="teamname1" class="teamname" placeholder="eigener Teamname">)
   <div class="player">
-    <button class="Box" id="t21"> + </button>
-    <button class="Box" id="t22"> + </button>
-    <button class="Box" id="t23"> + </button>
-    <button class="Box" id="t24"> + </button>
-    <button class="Box" id="t25"> + </button>
+    <div id="PlayerSelection2" class="hidden"></div>
+    <button class="Box" id="t21" onclick="selectPlayers(21)"> + </button>
+    <button class="Box" id="t22" onclick="selectPlayers(22)"> + </button>
+    <button class="Box" id="t23" onclick="selectPlayers(23)"> + </button>
+    <button class="Box" id="t24" onclick="selectPlayers(24)"> + </button>
+    <button class="Box" id="t25" onclick="selectPlayers(25)"> + </button>
   </div>
 </div>
+
 
   <button onclick="" id="beginButton" > Spiel starten </button>
 </div>
