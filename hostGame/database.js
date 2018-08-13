@@ -99,6 +99,10 @@ function activeGames(result){
   div.innerHTML = text;
 }
 
+function sendData(gameID){
+  window.location = "Spiel.html?" + gameID;
+}
+
 window.onload = function(){
   handleSignInClick();
 }
