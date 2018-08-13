@@ -89,9 +89,9 @@ function handleSignOutClick() {
 
 
 function activeGames(result){
+  var div = document.getElementById("activeGames");
+  var text ="";
   for(var i = 0;  i<result.values.length; i += 4){
-    var div = document.getElementById("activeGames");
-    var text ="";
     text += "<a href='javascript:sendData(" + i + ");'>" +
             result.values[i+3][0] + " gegen " + result.values[i+3][6]+
             "</a><br>";   
