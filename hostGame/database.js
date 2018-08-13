@@ -18,7 +18,7 @@ function read(source) {
     if(source=="Tabellenblatt1"){
       Players = response.result;
     }
-    else if(source=="Spiele"){
+    else if(source=="aktiveSpiele"){
         activeGames(response.result);
     }
   }, function(reason) {
@@ -75,7 +75,7 @@ function handleClientLoad() {
 function updateSignInStatus(isSignedIn) {
   if (isSignedIn) {
     read("Tabellenblatt1"); //TODO: change Tabellenblatt1 to Spieler in here, getPlayerStats and database
-    read("Spiele");
+    read("aktiveSpiele");
   }
 }
 
