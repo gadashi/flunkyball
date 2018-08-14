@@ -87,35 +87,35 @@ function handleSignOutClick() {
   gapi.auth2.getAuthInstance().signOut();
 }
 
-function selectPlayers(PlayerID){
-  //Players
+function selectPlayers(PlayerID_inGame){
+  //upon +Button press call the function with the ingame player id asan Argument
   var selectedPosition = [];
   div=document.getElementById("PlayerSelection");
 
   var text="";
+  //create a Buttonpanel from which a Player from the database can be added
   for(var rows = 1; rows < Players.values.length; rows++){
-    text += "<button class='playerChoices' onclick='setPlayer(" + PlayerID + ",";
+    text += "<button class='playerChoices' onclick='setPlayer(" + PlayerID_inGame + ",";
     text += rows + ")' >" + Players.values[rows][0] + "</button>";
-    var k = rows;
-    if(PlayerID > 20){
-      k += 5;
-    }
-    selectedPosition[k] = Players.values[rows][0];
   }
    text += "<button class='playerChoices' >  +  </button>";
-  console.log(selectedPosition);
-  div.style.left = (PlayerID % 10 - 1) * 100;
+  div.style.left = (PlayerID_inGame % 10 - 1) * 100;
   div.style.display  = "block";
   div.innerHTML = text;
 }
 
-function setPlayer(playerID,player){
-  
-  player =  Players.values[player][0];
-  console.log(playerID,player);
-  document.getElementById("PlayerSelection").style.display = "none";
-  document.getElementById(playerID).innerHTML = player;
-  document.getElementById(playerID).style.fontSize = "25px";
+function setPlayer(playerID_inGame,playerID_Array){
+  var buttons =document.getElementById(playerID_inGame);
+  if(buttons.innerHTML != " + "){
+    Players.push(buttons.innerHTML);
+  }
+  var playerName = Players.values[playerID_Array][0];
+  console.log(playerID_Array, Players.values[playerID_Array][0]);
+  Players.values.splice(playerID_Array, 1);
+    var div= document.getElementById("PlayerSelection");
+  div.style.display = "none";
+  buttons.innerHTML = playerName;
+  document.getElementById(playerID_inGame).style.fontSize = "20px";
 }
 
 function activeGames(result){
