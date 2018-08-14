@@ -94,7 +94,7 @@ function selectPlayers(PlayerID){
 
   var text="";
   for(var rows = 1; rows < Players.values.length; rows++){
-    text += "<button class='playerCoices' onclick='setPlayer('" + PlayerID + "',";
+    text += "<button class='playerCoices' onclick='setPlayer(" + PlayerID + ",";
     text += Players.values[rows][0] + ");' >" + Players.values[rows][0] + "</button>";
     var k = rows;
     if(PlayerID > 20){
@@ -109,7 +109,7 @@ function selectPlayers(PlayerID){
 
 function setPlayer(playerID,player){
   console.log(playerID,player);
-  document.getElementById("PlayerSelection").style.display = "none";
+  //document.getElementById("PlayerSelection").style.display = "none";
  // document.getElementById(playerID).innerHTML = player;
   //document.getElementById(playerID).style.fontSize = "25px";
 }
