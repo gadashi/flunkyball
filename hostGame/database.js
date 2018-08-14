@@ -94,8 +94,8 @@ function selectPlayers(PlayerID){
 
   var text="";
   for(var rows = 1; rows < Players.values.length; rows++){
-    text += "<button class='playerChoices' onclick='setPlayer()'> I'm done </button>"// + PlayerID + ",";
-    //text += Players.values[rows][0] + ")' >" + Players.values[rows][0] + "</button>";
+    text += "<button class='playerChoices' onclick='setPlayer(" + PlayerID + ",";
+    text += rows + ")' >" + Players.values[rows][0] + "</button>";
     var k = rows;
     if(PlayerID > 20){
       k += 5;
@@ -107,8 +107,10 @@ function selectPlayers(PlayerID){
   div.innerHTML = text;
 }
 
-function setPlayer(){//playerID,player){
-  console.log("I'm called");
+function setPlayer(playerID,player){
+  
+  player =  Players.values[player][0];
+  console.log(playerID,player);
   //document.getElementById("PlayerSelection").style.display = "none";
  // document.getElementById(playerID).innerHTML = player;
   //document.getElementById(playerID).style.fontSize = "25px";
