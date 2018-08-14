@@ -94,7 +94,7 @@ function selectPlayers(PlayerID){
 
   var text="";
   for(var rows = 1; rows < Players.values.length; rows++){
-    text += "<button class='playerCoices' onclick='setPlayer('" + playerID + "',";
+    text += "<button class='playerCoices' onclick='setPlayer('" + PlayerID + "',";
     text += Players.values[rows][0] + ");' >" + Players.values[rows][0] + "</button>";
     var k = rows;
     if(PlayerID > 20){
