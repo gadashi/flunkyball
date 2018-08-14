@@ -93,7 +93,7 @@ function selectPlayers(PlayerID){
   div=document.getElementById("PlayerSelection");
 
   var text="";
-  for(var rows = 1; rows < Players.values.length; rows++;){
+  for(var rows = 1; rows < Players.values.length; rows++){
     text += "<button onclick='setPlayer(t" + PlayerID +
     ","Players.values[rows][0]")' class='playerCoices'>" +
     Players.values[rows][0] + "</button>";
