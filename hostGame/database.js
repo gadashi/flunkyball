@@ -108,6 +108,7 @@ function setPlayer(playerID_inGame,playerID_Array){
   var buttons =document.getElementById(playerID_inGame);
   if(buttons.innerHTML != " + "){
     Players.values.push(buttons.innerHTML);
+    console.log(Players.values[Players.values.length-1]);
     console.log(buttons.innerHTML);
   }
   var playerName = Players.values[playerID_Array][0];
