@@ -109,8 +109,9 @@ function selectPlayers(PlayerID){
 }
 
 function setPlayer(playerID,player){
+  console.log(playerID,player);
   document.getElementById("PlayerSelection").style.display = "none";
-  document.getElementById(playerID).innerHTML = player;
+ // document.getElementById(playerID).innerHTML = player;
   document.getElementById(playerID).style.fontSize = "25px";
 }
 
