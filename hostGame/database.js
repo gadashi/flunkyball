@@ -111,9 +111,9 @@ function setPlayer(playerID,player){
   
   player =  Players.values[player][0];
   console.log(playerID,player);
-  //document.getElementById("PlayerSelection").style.display = "none";
- // document.getElementById(playerID).innerHTML = player;
-  //document.getElementById(playerID).style.fontSize = "25px";
+  document.getElementById("PlayerSelection").style.display = "none";
+  document.getElementById(playerID).innerHTML = player;
+  document.getElementById(playerID).style.fontSize = "25px";
 }
 
 function activeGames(result){
