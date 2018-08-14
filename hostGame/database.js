@@ -107,7 +107,7 @@ function selectPlayers(PlayerID){
   div.innerHTML = text;
 }
 
-function setPlayer()//playerID,player){
+function setPlayer(){//playerID,player){
   console.log("I'm called");
   //document.getElementById("PlayerSelection").style.display = "none";
  // document.getElementById(playerID).innerHTML = player;
