@@ -94,8 +94,8 @@ function selectPlayers(PlayerID){
 
   var text="";
   for(var rows = 1; rows < Players.values.length; rows++){
-    text += "<button onclick='setPlayer(t" + PlayerID +
-    "," + Players.values[rows][0] + ");' class='playerCoices'>" +
+    text += "<button onclick='setPlayer('t" + PlayerID +
+    "'," + Players.values[rows][0] + ");' class='playerCoices'>" +
     Players.values[rows][0] + "</button>";
     var k = rows;
     if(PlayerID > 20){
@@ -112,7 +112,7 @@ function setPlayer(playerID,player){
   console.log(playerID,player);
   document.getElementById("PlayerSelection").style.display = "none";
  // document.getElementById(playerID).innerHTML = player;
-  document.getElementById(playerID).style.fontSize = "25px";
+  //document.getElementById(playerID).style.fontSize = "25px";
 }
 
 function activeGames(result){
