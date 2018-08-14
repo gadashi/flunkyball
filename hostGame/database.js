@@ -102,7 +102,9 @@ function selectPlayers(PlayerID){
     }
     selectedPosition[k] = Players.values[rows][0];
   }
+   text += "<button class='playerChoices' >  +  </button>";
   console.log(selectedPosition);
+  div.style.left = (PlayerID % 10 - 1) * 100;
   div.style.display  = "block";
   div.innerHTML = text;
 }
