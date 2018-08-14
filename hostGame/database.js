@@ -90,15 +90,12 @@ function handleSignOutClick() {
 function selectPlayers(PlayerID){
   //Players
   var selectedPosition = [];
-  if(PlayerID < 20){
-    div=document.getElementById("PlayerSelection1");
-  }
-  else{
-    div=document.getElementById("PlayerSelection2");
-  }
+  div=document.getElementById("PlayerSelection");
+
   var text="";
-  for(var rows = 0; rows < Players.values.length; rows++){
-    text += "<button class='playerCoices'>" +
+  for(var rows = 1; rows < Players.values.length; rows++;){
+    text += "<button onclick='setPlayer(t" + PlayerID +
+    ","Players.values[rows][0]")' class='playerCoices'>" +
     Players.values[rows][0] + "</button>";
     var k = rows;
     if(PlayerID > 20){
@@ -109,6 +106,12 @@ function selectPlayers(PlayerID){
   console.log(selectedPosition);
   div.style.display  = "block";
   div.innerHTML = text;
+}
+
+function setPlayer(playerID,player){
+  document.getElementById("PlayerSelection").style.display = "none";
+  document.getElementById(playerID).innerHTML = player;
+  document.getElementById(playerID).style.fontSize = "25px";
 }
 
 function activeGames(result){
