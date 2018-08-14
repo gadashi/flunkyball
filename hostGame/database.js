@@ -88,6 +88,8 @@ function handleSignOutClick() {
 }
 
 function selectPlayers(PlayerID_inGame){
+    console.log("start other function" + Player.values);
+
   //upon +Button press call the function with the ingame player id asan Argument
  
   div=document.getElementById("PlayerSelection");
@@ -102,13 +104,16 @@ function selectPlayers(PlayerID_inGame){
   div.style.left = (PlayerID_inGame % 10 - 1) * 100;
   div.style.display  = "block";
   div.innerHTML = text;
+  console.log("end other function" + Player.values);
 }
 
 function setPlayer(playerID_inGame,playerID_Array){
+    console.log(" beginning " +Players.values);
+  
   var buttons =document.getElementById(playerID_inGame);
   if(buttons.innerHTML != " + "){
     Players.values.push(buttons.innerHTML);
-    console.log(Players.values);
+    console.log("middle"+Players.values);
     console.log(buttons.innerHTML);
   }
   var playerName = Players.values[playerID_Array][0];
@@ -118,6 +123,8 @@ function setPlayer(playerID_inGame,playerID_Array){
   div.style.display = "none";
   buttons.innerHTML = playerName;
   document.getElementById(playerID_inGame).style.fontSize = "20px";
+    console.log("end"+Players.values);
+  
 }
 
 function activeGames(result){
