@@ -88,7 +88,7 @@ function handleSignOutClick() {
 }
 
 function selectPlayers(PlayerID_inGame){
-    console.log("start other function" + Player.values);
+    console.log("start other function" + Players.values);
 
   //upon +Button press call the function with the ingame player id asan Argument
  
@@ -104,7 +104,7 @@ function selectPlayers(PlayerID_inGame){
   div.style.left = (PlayerID_inGame % 10 - 1) * 100;
   div.style.display  = "block";
   div.innerHTML = text;
-  console.log("end other function" + Player.values);
+  console.log("end other function" + Players.values);
 }
 
 function setPlayer(playerID_inGame,playerID_Array){
