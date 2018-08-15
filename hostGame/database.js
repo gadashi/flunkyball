@@ -33,7 +33,7 @@ function read(source) {
   });
 }
 
-function writeData(data){
+function writeData(daten){
 
   var params = {
           // The ID of the spreadsheet to update.
@@ -45,12 +45,12 @@ function writeData(data){
           "data": [
                     {
                       "range": "aktiveSpiele!A" + (1 + numberOfGames * 4) +":L"+ (numberOfGames * 4 +4),
-                      "values": data,
+                      "values": daten,
                     }
                   ],
                   valueInputOption: 'RAW',
                 };
-
+        console.log(daten);
         var request = gapi.client.sheets.spreadsheets.values.batchUpdate(params, batchUpdateValuesRequestBody);
         request.then(function(response) {
           // TODO: Change code below to process the `response` object:
@@ -181,7 +181,7 @@ function prepData(){
 
   Teams[0] = "T2";//document.getElementById("teamname1").value;
   Teams[6] = "T1";//document.getElementById("teamname2").value;
-  var Data = [["Daneben"],["Treffer"],["Fertig"],["Help"]];
+  var Data = [["Daneben"],["Treffer"],["Fertig"],["Help","Help2","helpmeplsssss"]];
   writeData(Data); 
 
 }
