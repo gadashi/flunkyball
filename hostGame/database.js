@@ -179,9 +179,9 @@ function activeGames(result){
 
 function prepData(){
 
-  Teams[0] = "T2";//document.getElementById("teamname1").value;
-  Teams[6] = "T1";//document.getElementById("teamname2").value;
-  var Data = [["Daneben"],["Treffer"],["Fertig"],["Help","Help2","helpmeplsssss"]];
+  Teams[0] = document.getElementById("teamname1").value;
+  Teams[6] = document.getElementById("teamname2").value;
+  var Data = [["Daneben"],["Treffer"],["Fertig"],Teams];
   writeData(Data); 
 
 }
