@@ -104,7 +104,7 @@ console.log(Players.values);
   for(var rows = 1; rows < Players.values.length; rows++){
     if(lockedPlayers[rows] != PlayerID_inGame){
       //console.log(Players.values[rows][0]);
-      text += "<button class='playerChoices' onclick='setPlayer(" + PlayerID_inGame + "," + rows;         
+      text += "<button class='playerChoices' onclick='setPlayer(" + PlayerID_inGame + "," + rows +")'";         
       if(lockedPlayers[rows] != 0 && lockedPlayers[rows]<20){
          text += "style='border-color: blue;'" 
       }
@@ -112,7 +112,7 @@ console.log(Players.values);
        text += "style='border-color: red;'" 
       }
       
-      text += ")' >" + Players.values[rows][0] + "</button>";
+      text += " >" + Players.values[rows][0] + "</button>";
     }
 
   }
