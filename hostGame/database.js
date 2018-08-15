@@ -35,12 +35,17 @@ function write(){
     // The ID of the spreadsheet to update.
     spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',  // TODO: Update placeholder value.
     // The A1 notation of the values to update.
-    range: 'Tabellenblatt1',  // TODO: Update placeholder value.
+    range: 'Spiele',  // TODO: Update placeholder value.
     // How the input data should be interpreted.
     valueInputOption: 'RAW',  // TODO: Update placeholder value.
   };
 
   var valueRangeBody = {
+    ata: [
+        range:'Spiele',
+      
+        values: [[1,2,3],[4,5,6],[7,8,9]],
+      ]
     // TODO: Add desired properties to the request body. All existing properties
     // will be replaced.
   };
