@@ -119,6 +119,9 @@ console.log(Players.values);
        text += "style='border-color: red;'"
       }
       text += " >" + Players.values[rows][0] + "</button>";
+      if(rows%6 == 5){
+        text += "<br>";
+      }
     }
 
   }
