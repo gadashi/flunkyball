@@ -164,7 +164,7 @@ function setPlayer(playerID_inGame,playerID_Array){
 }
 
 function activeGames(result){
-  numberOfGames = result.values.length ;
+  numberOfGames = result.values.length / 4 ;
 
   var div = document.getElementById("activeGames");
   var text ="";
