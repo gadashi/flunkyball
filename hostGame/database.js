@@ -88,7 +88,6 @@ function handleSignOutClick() {
 }
 
 function selectPlayers(PlayerID_inGame){
-    console.log("start other function" + Players.values);
 
   //upon +Button press call the function with the ingame player id asan Argument
  
@@ -97,6 +96,7 @@ function selectPlayers(PlayerID_inGame){
   var text="";
   //create a Buttonpanel from which a Player from the database can be added
   for(var rows = 1; rows < Players.values.length; rows++){
+    console.log(Players.values[rows][0]);
     text += "<button class='playerChoices' onclick='setPlayer(" + PlayerID_inGame + ",";
     text += rows + ")' >" + Players.values[rows][0] + "</button>";
   }
@@ -104,27 +104,21 @@ function selectPlayers(PlayerID_inGame){
   div.style.left = (PlayerID_inGame % 10 - 1) * 100;
   div.style.display  = "block";
   div.innerHTML = text;
-  console.log("end other function" + Players.values);
 }
 
 function setPlayer(playerID_inGame,playerID_Array){
-    console.log(" beginning " +Players.values);
   
   var buttons =document.getElementById(playerID_inGame);
   if(buttons.innerHTML != " + "){
     Players.values.push(buttons.innerHTML);
-    console.log("middle"+Players.values);
-    console.log(buttons.innerHTML);
+
   }
   var playerName = Players.values[playerID_Array][0];
-  console.log(playerID_Array, Players.values[playerID_Array][0]);
   Players.values.splice(playerID_Array, 1);
     var div= document.getElementById("PlayerSelection");
   div.style.display = "none";
   buttons.innerHTML = playerName;
-  document.getElementById(playerID_inGame).style.fontSize = "20px";
-    console.log("end"+Players.values);
-  
+  document.getElementById(playerID_inGame).style.fontSize = "20px";  
 }
 
 function activeGames(result){
