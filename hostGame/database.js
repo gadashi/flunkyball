@@ -48,7 +48,7 @@ function writeData(data){
                       "values": data,
                     }
                   ],
-                  valueInputOption: 'RAW',
+                  valueInputOption: '',
                 };
 
         var request = gapi.client.sheets.spreadsheets.values.batchUpdate(params, batchUpdateValuesRequestBody);
@@ -181,8 +181,8 @@ function prepData(){
 
   Teams[0] = "T2";//document.getElementById("teamname1").value;
   Teams[6] = "T1";//document.getElementById("teamname2").value;
-  var Data = [["Daneben"],["Treffer"],["Fertig"],[Teams]];
-  writeData(Teams); 
+  var Data = [["Daneben"],["Treffer"],["Fertig"],["Help"]];
+  writeData(Data); 
 
 }
 
