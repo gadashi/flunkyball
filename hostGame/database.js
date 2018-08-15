@@ -88,7 +88,7 @@ function handleSignOutClick() {
 }
 
 function selectPlayers(PlayerID_inGame){
-
+console.log(Players.values);
   //upon +Button press call the function with the ingame player id asan Argument
  
   div=document.getElementById("PlayerSelection");
