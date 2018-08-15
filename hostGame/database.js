@@ -40,14 +40,9 @@ function write(){
     valueInputOption: 'RAW',  // TODO: Update placeholder value.
   };
 
-  var valueRangeBody = {
-    data: [
-        range:'Spiele',
-      
-        values: [[1,2,3],[4,5,6],[7,8,9]],
-      ]
-    // TODO: Add desired properties to the request body. All existing properties
-    // will be replaced.
+   var valueRangeBody = {
+
+    values: [[1,2],[3,4]],
   };
 
   var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
