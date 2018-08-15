@@ -102,7 +102,7 @@ console.log(Players.values);
   var text="";
   //create a Buttonpanel from which a Player from the database can be added
   for(var rows = 1; rows < Players.values.length; rows++){
-    if(lockedPlayers[rows] == PlayerID_inGame){
+    if(lockedPlayers[rows] != PlayerID_inGame){
       console.log(Players.values[rows][0]);
       text += "<button class='playerChoices' onclick='setPlayer(" + PlayerID_inGame + "," + rows;         
       if(lockedPlayers[rows] != 0 && lockedPlayers[rows]<20){
