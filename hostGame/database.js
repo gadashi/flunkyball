@@ -103,7 +103,7 @@ console.log(Players.values);
   //create a Buttonpanel from which a Player from the database can be added
   for(var rows = 1; rows < Players.values.length; rows++){
     if(lockedPlayers[rows] != PlayerID_inGame){
-      console.log(Players.values[rows][0]);
+      //console.log(Players.values[rows][0]);
       text += "<button class='playerChoices' onclick='setPlayer(" + PlayerID_inGame + "," + rows;         
       if(lockedPlayers[rows] != 0 && lockedPlayers[rows]<20){
          text += "style='border-color: blue;'" 
@@ -123,7 +123,7 @@ console.log(Players.values);
 }
 
 function setPlayer(playerID_inGame,playerID_Array){
-  
+  console.log("called",playerID_inGame,playerID_Array);
   var buttons =document.getElementById(playerID_inGame);
 
   var playerName = Players.values[playerID_Array][0];
