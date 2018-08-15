@@ -47,7 +47,8 @@ function write(){
                   ],
           valueInputOption: 'RAW',
                 };
-
+  console.log(batchUpdateValuesRequestBody);
+/*
         var request = gapi.client.sheets.spreadsheets.values.batchUpdate(params, batchUpdateValuesRequestBody);
         request.then(function(response) {
           // TODO: Change code below to process the `response` object:
@@ -55,7 +56,7 @@ function write(){
         }, function(reason) {
           console.error('error: ' + reason.result.error.message);
         });
-
+*/
 }
 
 function initClient() {
