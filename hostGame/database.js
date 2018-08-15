@@ -31,19 +31,21 @@ function read(source) {
 }
 
 function write(){
+  console.log("called function");
   var params = {
           // The ID of the spreadsheet to update.
           spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',  // TODO: Update placeholder value.
         };
 
         var batchUpdateValuesRequestBody = {
-          valueInputOption: 'RAW',
+          
           "data": [
                     {
-                      "range": "Spiele!A2:B3",
+                      "range": "Spiele!A4:B5",
                       "values": [[1,2],[3,4]]
                     }
                   ],
+          valueInputOption: 'RAW',
                 };
 
         var request = gapi.client.sheets.spreadsheets.values.batchUpdate(params, batchUpdateValuesRequestBody);
