@@ -48,7 +48,7 @@ function writeData(data){
                       "values": data,
                     }
                   ],
-                  valueInputOption: '',
+                  valueInputOption: 'RAW',
                 };
 
         var request = gapi.client.sheets.spreadsheets.values.batchUpdate(params, batchUpdateValuesRequestBody);
