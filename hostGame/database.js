@@ -130,12 +130,13 @@ function setPlayer(playerID_inGame,playerID_Array){
   for(var i=0;i<lockedPlayers.length;i++){
     if(lockedPlayers[i] == playerID_inGame){
         lockedPlayers[i]=0;
-      document.getElementById(lockedPlayers[i]).innerHTML = "+";
-        document.getElementById(lockedPlayers[i]).style.fontSize = "40px";  
-
+      
     break;
     }
   }
+  document.getElementById(lockedPayers[playerID_Array]).innerHTML="+";
+    document.getElementById(lockedPlayers[playerID_Array]).style.fontSize="40px";;
+
   lockedPlayers[playerID_Array] = playerID_inGame;
   console.log(lockedPlayers);
   
