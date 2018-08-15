@@ -111,7 +111,6 @@ console.log(Players.values);
       else if(lockedPlayers[rows] != 0 && lockedPlayers[rows]>20){
        text += "style='border-color: red;'" 
       }
-      
       text += " >" + Players.values[rows][0] + "</button>";
     }
 
@@ -131,6 +130,9 @@ function setPlayer(playerID_inGame,playerID_Array){
   for(var i=0;i<lockedPlayers.length;i++){
     if(lockedPlayers[i] == playerID_inGame){
         lockedPlayers[i]=0;
+      document.getElementById(lockedPlayers[i]).innerHTML = "+";
+        document.getElementById(lockedPlayers[i]).style.fontSize = "40px";  
+
     break;
     }
   }
