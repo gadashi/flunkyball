@@ -10,7 +10,7 @@ var Teams = new Array(12);
 function read(source) {
   var params = {
     spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',
-    range: source,
+    range: source + "!A1:A100",
     //valueRenderOption: '',
     //dateTimeRenderOption: '',
   };
