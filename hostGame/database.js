@@ -134,7 +134,7 @@ function setPlayer(playerID_inGame,playerID_Array){
     break;
     }
   }
-  document.getElementById(lockedPayers[playerID_Array]).innerHTML="+";
+  document.getElementById(lockedPlayers[playerID_Array]).innerHTML="+";
     document.getElementById(lockedPlayers[playerID_Array]).style.fontSize="40px";;
 
   lockedPlayers[playerID_Array] = playerID_inGame;
