@@ -134,7 +134,7 @@ function setPlayer(playerID_inGame,playerID_Array){
     break;
     }
   }
-  iif(lockedPlayers[playerID_Array]!=0){
+  if(lockedPlayers[playerID_Array]!=0){
   document.getElementById(lockedPlayers[playerID_Array]).innerHTML="+";
     document.getElementById(lockedPlayers[playerID_Array]).style.fontSize="40px";;
   }
