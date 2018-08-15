@@ -128,6 +128,12 @@ function setPlayer(playerID_inGame,playerID_Array){
 
   var playerName = Players.values[playerID_Array][0];
 
+  for(var i=0;i<lockedPlayers.length;i++{
+    if(lockedPlayers[i] == playerID_inGame){
+        lockedPlayers[i]=0;
+    break;
+    }
+  }
   lockedPlayers[playerID_Array] = playerID_inGame;
   console.log(lockedPlayers);
   
