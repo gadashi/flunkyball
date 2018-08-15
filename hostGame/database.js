@@ -30,7 +30,7 @@ function read(source) {
   });
 }
 
-function write(){
+function writeData(){
   console.log("called function");
   var params = {
           // The ID of the spreadsheet to update.
