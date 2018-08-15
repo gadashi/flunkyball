@@ -2,7 +2,8 @@
 //Client secret:1bYKj5bZZtcInTejJgB3ujDU
 //API key: AIzaSyAh2TO5vxJchkAKTL_dyIR7yOmfzrNpC5k
 //Table Id: 1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4
-
+var Players = [];
+var lockedPlayers = [];
 function read(source) {
   var params = {
     spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',
@@ -17,6 +18,9 @@ function read(source) {
     console.log(response.result);
     if(source=="Tabellenblatt1"){
       Players = response.result;
+      for(var i=0;i<Players.values.length;i++){
+        lockedPlayers[i] = 0;
+      }
     }
     else if(source=="aktiveSpiele"){
         activeGames(response.result);
@@ -87,18 +91,30 @@ function handleSignOutClick() {
   gapi.auth2.getAuthInstance().signOut();
 }
 
+
+
 function selectPlayers(PlayerID_inGame){
 console.log(Players.values);
-  //upon +Button press call the function with the ingame player id asan Argument
+  //upon +Button press call the function with the ingame player id as an Argument
  
   div=document.getElementById("PlayerSelection");
 
   var text="";
   //create a Buttonpanel from which a Player from the database can be added
   for(var rows = 1; rows < Players.values.length; rows++){
-    console.log(Players.values[rows][0]);
-    text += "<button class='playerChoices' onclick='setPlayer(" + PlayerID_inGame + ",";
-    text += rows + ")' >" + Players.values[rows][0] + "</button>";
+    if(lockedPlayers[rows] == PlayerID_inGame){
+      console.log(Players.values[rows][0]);
+      text += "<button class='playerChoices' onclick='setPlayer(" + PlayerID_inGame + "," + rows;         
+      if(lockedPlayers[rows] != 0 && lockedPlayers[rows]<20){
+         text += "style='border-color: blue;'" 
+      }
+      else if(lockedPlayers[rows] != 0 && lockedPlayers[rows]>20){
+       text += "style='border-color: red;'" 
+      }
+      
+      text += ")' >" + Players.values[rows][0] + "</button>";
+    }
+
   }
    text += "<button class='playerChoices' >  +  </button>";
   div.style.left = (PlayerID_inGame % 10 - 1) * 100;
@@ -109,12 +125,12 @@ console.log(Players.values);
 function setPlayer(playerID_inGame,playerID_Array){
   
   var buttons =document.getElementById(playerID_inGame);
-  if(buttons.innerHTML != " + "){
-    Players.values.push(buttons.innerHTML);
 
-  }
   var playerName = Players.values[playerID_Array][0];
-  Players.values.splice(playerID_Array, 1);
+
+  lockedPlayers[playerID_Array] = playerID_inGame;
+  console.log(lockedPlayers);
+  
     var div= document.getElementById("PlayerSelection");
   div.style.display = "none";
   buttons.innerHTML = playerName;
