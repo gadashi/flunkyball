@@ -31,7 +31,7 @@ function read(source) {
 }
 
 function writeData(){
-  console.log("called function");
+  
   var params = {
           // The ID of the spreadsheet to update.
           spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',  // TODO: Update placeholder value.
@@ -47,8 +47,8 @@ function writeData(){
                   ],
           valueInputOption: 'RAW',
                 };
-  console.log(batchUpdateValuesRequestBody);
-/*
+
+
         var request = gapi.client.sheets.spreadsheets.values.batchUpdate(params, batchUpdateValuesRequestBody);
         request.then(function(response) {
           // TODO: Change code below to process the `response` object:
@@ -56,7 +56,7 @@ function writeData(){
         }, function(reason) {
           console.error('error: ' + reason.result.error.message);
         });
-*/
+
 }
 
 function initClient() {
