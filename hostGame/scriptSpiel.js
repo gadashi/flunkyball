@@ -97,7 +97,7 @@ function populateNames(Names){
 
   for(var i = 0; i < Names.values[3].length; i++){
     if(i != 0 && i != 6){
-      document.getElementById('Player' + i).innerHTML = Names.values[3][i];
+      document.getElementById('Spieler' + i).innerHTML = Names.values[3][i];
     }
   }
 }
