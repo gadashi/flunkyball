@@ -164,10 +164,10 @@ finishedPlayers.push([id,numberOfHits]);
   var updateCellValue = "";
   for(var i=0; i<finishedPlayers.length;i++){
     updateCellValue += finishedPlayers[i][0]+ ",";
-    console.log(finishedPlayers[i][0],updateCellValue);
+    
   }
-  UpdateCell(row+ 1,col,0);
-  console.log(finishedPlayers);
+  UpdateCell(row+ 1,col,updateCellValue);
+  //console.log(finishedPlayers);
 
 }
 function hit(id){
