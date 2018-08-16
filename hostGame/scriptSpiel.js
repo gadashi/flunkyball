@@ -34,7 +34,7 @@ function writeData(data){
           "data": [
                     {
                       "range": "aktiveSpiele!A" + (1 + numberOfGames * 4) +":L"+ (numberOfGames * 4 +4),
-                      "values": data,
+                      "values": [data],
                     }
                   ],
                   valueInputOption: 'RAW',
