@@ -155,6 +155,12 @@ var findCol = numberOfThrows;
 
 function done(id){
 finishedPlayers.push([id,numberOfHits]);
+   var col="";
+  var findCol = numberOfThrows;
+    while(findCol >= 0){
+      col += Alphabet[findCol%26];
+      findCol -= 26;
+    }
   var updateCellValue = "";
   for(var i=0; i<finishedPlayers.length;i++){
     updateCellValue += finishedPlayers[i][0]+ ",";
