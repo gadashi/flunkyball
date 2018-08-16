@@ -184,7 +184,7 @@ function prepData(){
 
   Teams[0] = document.getElementById("teamname1").value;
   Teams[6] = document.getElementById("teamname2").value;
-  var Data = [["Daneben"],["Treffer"],["Fertig"],Teams];
+  var Data = [["Daneben"],["Fertig"],["Treffer"],Teams];
   writeData(Data); 
 
 }
