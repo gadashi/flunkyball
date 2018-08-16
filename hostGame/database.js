@@ -190,7 +190,7 @@ function prepData(){
 }
 
 function sendData(gameID){
-  window.location = "Spiel.html?" + gameID;
+  window.location = "Spiel.html?" + gameID / 4;
 }
 
 window.onload = function(){
