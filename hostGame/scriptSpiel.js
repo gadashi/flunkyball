@@ -136,6 +136,8 @@ var numberOfThrows = 1;
 var Alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L",
                 "M","N","O","P","Q","R","S","T","U","V","W","X",
                 "Y","Z"];
+var finishedPlayers = [],
+    numberOfHits = 0;
 function miss(id){
 var col="";
 var findCol = numberOfThrows;
@@ -152,10 +154,17 @@ var findCol = numberOfThrows;
 }
 
 function done(id){
-
+finishedPlayers.push([id,numberOfHits]);
+  var updateCellValue = "";
+  for(var i=0; i<finishedPlayers.length;i++){
+    updateCellValue += finishedPlayers[i][0]+ ",";
+  }
+  UpdateCell(row+ 1,col,0);
+  console.log(finishedPlayers);
 
 }
 function hit(id){
+  numberOfHits++;
   var col="";
   var findCol = numberOfThrows;
     while(findCol >= 0){
