@@ -152,17 +152,7 @@ var findCol = numberOfThrows;
 }
 
 function done(id){
-  var col="";
-  var findCol = numberOfThrows;
-    while(findCol >= 0){
-      col += Alphabet[findCol%26];
-      findCol -= 26;
-    }
-    numberOfThrows++;
-    console.log(row,col,id,numberOfThrows);
-    UpdateCell(row,col,0);
-    UpdateCell(row+ 1,col,id);
-    UpdateCell(row+2,col,0);
+
 
 }
 function hit(id){
