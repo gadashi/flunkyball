@@ -93,7 +93,7 @@ function handleSignOutClick() {
 
 function populateNames(Names){
   //Teamnames:
-  document.getElementByID("Teamnames").innerHTML = Names[3][0] + " vs. " + Names[3][6];
+  document.getElementById("Teamnames").innerHTML = Names[3][0] + " vs. " + Names[3][6];
   var teamname2 = Names[3][6];
 
   for(var i = 0; i < Names[3].length; i++){
