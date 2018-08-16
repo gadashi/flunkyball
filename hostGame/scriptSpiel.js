@@ -64,7 +64,7 @@ function UpdateCell(rows,cols,data) {
    };
 
    var valueRangeBody = {
-     'values': data,// TODO: Add desired properties to the request body. All existing properties
+     'values': [data],// TODO: Add desired properties to the request body. All existing properties
      // will be replaced.
    };
 
