@@ -143,8 +143,8 @@ var findCol = numberOfThrows;
     col += Alphabet[findCol%26];
     findCol -= 26;
   }
-  numberofThrows++;
-  console.log(row,col,id);
+  numberOfThrows++;
+  console.log(row,col,id,numberOfThrows);
   UpdateCell(row,col,id);
   UpdateCell(row + 1,col,0);
   UpdateCell(row +2,col,0);
