@@ -90,6 +90,18 @@ function handleSignOutClick() {
   gapi.auth2.getAuthInstance().signOut();
 }
 
+function populateNames(Names){
+  //Teamnames:
+  document.getElementByID("Teamnames").innerHTML = Names[3][0] + " vs. " + Names[3][6];
+  var teamname2 = Names[3][6];
+
+  for(var i = 0; i < Names[3].length; i++){
+    if(i != 0 && i != 6){
+      document.getElementById('Player' + i).innerHTML = Names[3][i];
+    }
+  }
+}
+
 window.onload = function(){
   handleSignInClick();
 }
