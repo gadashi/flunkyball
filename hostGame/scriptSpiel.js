@@ -16,7 +16,7 @@ function read(gameID) {
   request.then(function(response) {
     // TODO: Change code below to process the `response` object:
     console.log(response.result);
-    populateNames(response.result);
+    populateNames(response.result,gameID);
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });
@@ -118,7 +118,7 @@ function handleSignOutClick() {
   gapi.auth2.getAuthInstance().signOut();
 }
 
-function populateNames(Names){
+function populateNames(Names,gameID){
   //Teamnames:
   document.getElementById("Teamnames").innerHTML = Names.values[3][0] + " vs. " + Names.values[3][6];
 
