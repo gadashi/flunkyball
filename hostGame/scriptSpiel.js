@@ -137,15 +137,15 @@ var Alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L",
                 "M","N","O","P","Q","R","S","T","U","V","W","X",
                 "Y","Z"];
 function miss(id){
-  var inGameID="";
-  inGameID += id;
 var col="";
-  while(numberOfThrows >= 0){
-    col += Alphabet[numberOfThrows%26];
-    numberOfThrows -= 26;
+var findCol = numberOfThrows;
+  while(findCol >= 0){
+    col += Alphabet[findCol%26];
+    findCol -= 26;
   }
-  console.log(row,col,inGameID);
-  UpdateCell(row,col,inGameID);
+  numberofThrows++;
+  console.log(row,col,id);
+  UpdateCell(row,col,id);
   UpdateCell(row + 1,col,0);
   UpdateCell(row +2,col,0);
 
