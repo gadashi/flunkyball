@@ -93,12 +93,11 @@ function handleSignOutClick() {
 
 function populateNames(Names){
   //Teamnames:
-  document.getElementById("Teamnames").innerHTML = Names[3][0] + " vs. " + Names[3][6];
-  var teamname2 = Names[3][6];
+  document.getElementById("Teamnames").innerHTML = Names.values[3][0] + " vs. " + Names.values[3][6];
 
-  for(var i = 0; i < Names[3].length; i++){
+  for(var i = 0; i < Names.values[3].length; i++){
     if(i != 0 && i != 6){
-      document.getElementById('Player' + i).innerHTML = Names[3][i];
+      document.getElementById('Player' + i).innerHTML = Names.values[3][i];
     }
   }
 }
