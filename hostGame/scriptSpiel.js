@@ -166,7 +166,7 @@ finishedPlayers.push([id,numberOfHits]);
     updateCellValue += finishedPlayers[i][0]+ ",";
     
   }
-  UpdateCell(row+ 1,col,updateCellValue);
+  UpdateCell(row+ 1,col - 1,updateCellValue);
   //console.log(finishedPlayers);
 
 }
