@@ -202,6 +202,10 @@ function prepData(newGameID){
   Teams[1] = document.getElementById("teamname1").value;
   if(Teams[1] === undefined){
     Teams[1] = "Team1";
+    console.log("undefined");
+  }
+  if(Teams[1] === null){
+    console.log("null");
   }
   Teams[7] = document.getElementById("teamname2").value;
   if(Teams[1] === undefined){
