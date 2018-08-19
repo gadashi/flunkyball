@@ -194,7 +194,8 @@ function prepData(newGameID){
     today = new Date(),
     dd = today.getDate(),
     mm = today.getMonth()+1,
-    yyyy = today.getFullYear();
+    yyyy = today.getFullYear(),
+    err = false;
 
   Teams[0] = dd + '.' + mm + '.'+ yyyy;
   Teams[1] = document.getElementById("teamname1").value;
@@ -202,10 +203,18 @@ function prepData(newGameID){
   for(i=2; i < 7; i++){
     Teams[i] = lockedPlayers[i-2];
     Teams[i + 6]= lockedPlayers[i+3];
+    if((Teams[i] == undefined || Teams[i + 6] == undefined) && (i-2)%6 != 5){
+      err = true;
+    }
   }
   var Data =[Teams,["Daneben"],["Treffer"],["Fertig",0,,,,,,0]];
+  if(!err){
   writeData(Data,newGameID);
   //sendData(newGameID);
+  }
+  else{
+  console.log("please select more Players");
+  }
 }
 
 function sendData(gameID){
