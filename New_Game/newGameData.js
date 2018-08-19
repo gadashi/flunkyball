@@ -141,6 +141,7 @@ function setPlayer(playerID_Array){
   */
   console.log("locked in Players:" + lockedPlayers);
   console.log(playerID_Array, selectedPosition);
+  console.log(lockedPlayers[selectedPosition]);
   
   //change the color of the button with the previous Player in this position back to green if there was one before
   if(lockedPlayers[selectedPosition] != ""){
