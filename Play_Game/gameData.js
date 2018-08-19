@@ -7,7 +7,7 @@
 function read(gameID) {
   var params = {
     spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',
-    range: 'aktiveSpiele!A' + (gameID * 4 +1) + ':M'+(gameID * 4 +4),
+    range: 'allGames!A' + (gameID * 4 +1) + ':M'+(gameID * 4 +4),
     //valueRenderOption: '',
     //dateTimeRenderOption: '',
   };
