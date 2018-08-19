@@ -6,17 +6,17 @@
 function read() {
   var params = {
        // The ID of the spreadsheet to retrieve data from.
-       spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',  // TODO: Update placeholder value.
-
+       spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',
        // The A1 notation of the values to retrieve.
-       ranges: ['allGames','allPlayers!A1:A100'],  // TODO: Update placeholder value.
-
+       ranges: ['allGames','allPlayers!A1:A100'],
      };
 
      var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
      request.then(function(response) {
        console.log(response.result);
-       //find all active Games
+       //find the hidden div and write all the names onto it
+       populateHiddenDiv(response.result.valueRanges[1].values)
+       //find all active Games and display them on the screen
        activeGames(response.result.valueRanges[0].values);
        //access data: response.result.valueRanges[0].values
      }, function(reason) {
@@ -104,9 +104,69 @@ function activeGames(gameData){
   div.innerHTML = text;
 }
 
-function selectPlayer(buttonID){
-  div=document.getElementById("PlayerSelection");
+var lockedPlayers = ["","","","","","","","","",""];
+var Players = [];
+function populateHiddenDiv(playerNames){
+  //find the hidden div and place buttons for all Players in the database
+  var div=document.getElementById("PlayerSelection");
   var text="";
+  for(var numPlayers = 0; numPlayers < playerNames.length; numPlayers++){
+    text += "<button class='playerChoices' id='a" + numPlayers + "' onclick='setPlayer(" + numPlayers + ")> " + playerNames[numPlayers][0] + "</button>";
+    //init an array of Players that were locked in
+
+    Players[numPlayers] = playerNames[numPlayers][0];
+  }
+  div.style.left = (PlayerID_inGame % 10 - 1) * 100;
+  div.innerHTML = text;
+
+}
+
+var selectedPosition = 0;
+function selectPlayers(buttonID){
+  //display a list of all the Players that can play and save the button that was clicked
+  div=document.getElementById("PlayerSelection");
+  div.style.display  = "block";
+  document.getElementById(lockedPlayer[buttonID]).style.borderColor = "black";
+  selectedPosition = buttonID;
+}
+
+function setPlayer(playerID_Array){
+  /*
+  when a Player is selected update the button it was chosen from.
+  Also update the list of locked in players and if this player was in another
+  position before remove him from there.
+  Also update color of all changed Buttons.
+  */
+
+  //change the color of the button with the previous Player in this position back to blue
+  document.getElementById(lockedPlayer[buttonID]).style.borderColor = "blue";
+
+  //if another Player is in this position already reset his border color
+  if(lockedPlayers[selectedPosition] != ""){
+    document.getElementById('a' + playerID_Array).style.borderColor = "blue";
+  }
+
+  //if this player was in another position before remove him from that position
+  for(var positions = 0; positions < lockedPlayers.length; positions++){
+    if(lockedPlayers[positions] == playerID_Array){
+      lockedPlayers[positions] = "";
+      document.getElementById(positions).innerHTML = "+";
+      break;
+    }
+  }
+
+  var buttonOfSelectedPosition = document.getElementById(selectedPosition);
+  var selectionDiv = document.getElementById("PlayerSelection");
+
+  //set the value of the position of the Player to the ID of the player
+  lockedPlayers[selectedPosition] = playerID_Array;
+
+  //update the text of the selected button
+  buttonOfSelectedPosition.innerHTML = Players[playerID_Array];
+
+
+
+
 }
 
 function sendData(gameID){
