@@ -37,7 +37,7 @@ function writeData(data,newGameID){
           "data": [
                     {
                       "range": "allGames!A" + (1 + newGameID * 4) +":M"+ (newGameID * 4 +4),
-                      "values": [data],
+                      "values": data,
                     }
                   ],
                   valueInputOption: 'RAW',
@@ -201,7 +201,7 @@ function prepData(newGameID){
     Teams[i] = lockedPlayers[i-2];
     Teams[i + 6]= lockedPlayers[i+3];
   }
-  var Data =[[Teams],["Daneben"],["Treffer"],["Fertig"]];
+  var Data =[Teams,["Daneben"],["Treffer"],["Fertig"]];
   writeData(Data,newGameID);
   //sendData(newGameID);
 }
