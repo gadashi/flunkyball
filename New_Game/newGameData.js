@@ -141,14 +141,10 @@ function setPlayer(playerID_Array){
   Also update color of all changed Buttons.
   */
   console.log(playerID_Array, selectedPosition);
-  //change the color of the button with the previous Player in this position back to green if there was one before
-  if(lockedPlayers[buttonID] != ""){
-  document.getElementById(lockedPlayers[buttonID]).style.borderColor = "green";
-  }
-  
+
   //if another Player is in this position already reset his border color
 if(lockedPlayers[selectedPosition] != ""){
-  document.getElementById(lockedPlayers[selectedPosition]).style.borderColor = "green";
+  document.getElementById('a'+lockedPlayers[selectedPosition]).style.borderColor = "green";
   }
 
   //if this player was in another position before remove him from that position
@@ -171,10 +167,10 @@ if(lockedPlayers[selectedPosition] != ""){
 
   //set the border of the newly selected Player to blue or red
   if(selectedPosition < 5){
-    document.getElementById(playerID_Array).style.borderColor = "blue";
+    document.getElementById('a'+playerID_Array).style.borderColor = "blue";
   }
   else{
-    document.getElementById(playerID_Array).style.borderColor = "red";
+    document.getElementById('a'+playerID_Array).style.borderColor = "red";
     
   }
 
