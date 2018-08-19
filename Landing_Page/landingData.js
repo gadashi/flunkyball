@@ -13,7 +13,7 @@ function loadData(){
         var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
         request.then(function(response) {
           // TODO: Change code below to process the `response` object:
-          result = response.result;
+          result = response.result.valueRanges[1];
           respond(response.result.valueRanges[1]);
           console.log(response.result);
         }, function(reason) {
