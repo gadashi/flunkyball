@@ -117,46 +117,60 @@ var Alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L",
                 "Y","Z"];
 
 function miss(id){
+  var whichTeam = 0;
+  if(id > 6){
+    whichTeam = 6;
+  }
   if(GameData[1][id] == undefined){
     GameData[1][id] = 1;
   }
   else{
       GameData[1][id] += 1;
   }
-  if(GameData[1][1] == undefined){
-    GameData[1][1] = 1;
+  if(GameData[1][1+whichTeam] == undefined){
+    GameData[1][1+whichTeam] = 1;
   }
   else{
-    GameData[1][1] += 1;
+    GameData[1][1+whichTeam] += 1;
   }
 
-  console.log(GameData[1][id]);
+
   col = Alphabet[id];
   UpdateCell(row + 1,col,GameData[1][id]);
-  UpdateCell(row + 1,"B",GameData[1][1]);
+  col = Alphabet[1 + whichTeam];
+  UpdateCell(row + 1,col,GameData[1][id]);
 
 }
 
 function done(id){
-  col = Alphabet[id];
-  UpdateCell(row + 2,col,GameData[2][1]);
+  var whichTeam = 0;
+  if(id > 6){
+    whichTeam = 6;
+  }
+  col = Alphabet[id + whichTeam];
+  UpdateCell(row + 2,col,GameData[2][1+whichTeam]);
 }
 function hit(id){
+  var whichTeam = 0;
+  if(id > 6){
+    whichTeam = 6;
+  }
   if(GameData[2][id] == undefined){
     GameData[2][id] = 1;
   }
   else{
       GameData[2][id] += 1;
   }
-  if(GameData[2][1] == undefined){
-    GameData[2][1] = 1;
+  if(GameData[2][1 + whichTeam] == undefined){
+    GameData[2][1 + whichTeam] = 1;
   }
   else{
-    GameData[2][1] += 1;
+    GameData[2][1 + whichTeam] += 1;
   }
   col = Alphabet[id];
   UpdateCell(row + 2,col,GameData[2][id]);
-  UpdateCell(row + 2,"B",GameData[2][id]);
+  col = Alphabet[1 +whichTeam];
+  UpdateCell(row + 2,col,GameData[2][id]);
 }
 window.onload = function(){
   handleSignInClick();
