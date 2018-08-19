@@ -126,7 +126,9 @@ function selectPlayers(buttonID){
   div=document.getElementById("PlayerSelection");
   div.style.left = (buttonID % 10 - 1) * 100;
   div.style.display  = "block";
+  if(lockedPlayers[buttonID] != ""){
   document.getElementById(lockedPlayers[buttonID]).style.borderColor = "black";
+  }
   selectedPosition = buttonID;
 }
 
