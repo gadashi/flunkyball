@@ -146,11 +146,12 @@ if(lockedPlayers[selectedPosition] != ""){
   document.getElementById('a'+lockedPlayers[selectedPosition]).style.borderColor = "green";
   }
 
-  //if this player was in another position before remove him from that position
+    //if this player was in another position before remove him from that position
   for(var positions = 0; positions < lockedPlayers.length; positions++){
     if(lockedPlayers[positions] == playerID_Array){
       lockedPlayers[positions] = "";
       document.getElementById(positions).innerHTML = "+";
+      document.getElementById(positions).style.fontSize = "40px";
       break;
     }
   }
@@ -163,7 +164,7 @@ if(lockedPlayers[selectedPosition] != ""){
 
   //update the text of the selected button
   buttonOfSelectedPosition.innerHTML = Players[playerID_Array];
-
+  buttonOfSelectedPosition.style.fontSize = "20px";
   //set the border of the newly selected Player to blue or red
   if(selectedPosition < 5){
     document.getElementById('a'+playerID_Array).style.borderColor = "blue";
