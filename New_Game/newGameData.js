@@ -147,10 +147,11 @@ function setPlayer(playerID_Array){
   document.getElementById('a'+lockedPlayers[selectedPosition]).style.borderColor = "green";
   }
   
-  //if another Player is in this position already reset his border color
-if(lockedPlayers[selectedPosition] != ""){
-  document.getElementById('a'+lockedPlayers[selectedPosition]).style.borderColor = "green";
+ //if another Player is in this position already reset his border color
+  if(lockedPlayers[selectedPosition] != ""){
+    document.getElementById('a' + playerID_Array).style.borderColor = "green";
   }
+
 
     //if this player was in another position before remove him from that position
   for(var positions = 0; positions < lockedPlayers.length; positions++){
