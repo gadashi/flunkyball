@@ -214,7 +214,7 @@ function prepData(newGameID){
       err = true;
     }
   }
-  var Data =[Teams,["Daneben"],["Treffer"],["Fertig",0,,,,,,0]];
+  var Data =[Teams,["Daneben"],["Treffer"],["Fertig"]];
   if(!err){
   writeData(Data,newGameID);
   //sendData(newGameID);
