@@ -198,14 +198,21 @@ function prepData(newGameID){
     err = false;
 
   Teams[0] = dd + '.' + mm + '.'+ yyyy;
+  //get teamnames or set default values
   Teams[1] = document.getElementById("teamname1").value;
+  if(Teams[1] === undefined){
+    Teams[1] = "Team1";
+  }
   Teams[7] = document.getElementById("teamname2").value;
+  if(Teams[1] === undefined){
+    Teams[1] = "Team2";
+  }
+  //write the playernames of each position into the array that will be saved
   for(i=2; i < 7; i++){
     Teams[i] = Players[lockedPlayers[i-2]];
     Teams[i + 6]= Players[lockedPlayers[i+3]];
-    if((Teams[i] == undefined || Teams[i + 6] == null) && (i-2)%6 != 5){
+    if((Teams[i] == undefined || Teams[i + 6] == undefined) && (i-2)%6 != 5){
       err = true;
-      console.log("truueeee");
     }
   }
   var Data =[Teams,["Daneben"],["Treffer"],["Fertig",0,,,,,,0]];
@@ -214,7 +221,7 @@ function prepData(newGameID){
   //sendData(newGameID);
   }
   else{
-  console.log("please select more Players");
+  document.getElementById("beginP").innerHTML  = "please select at least 4 Players for each team";
   }
 }
 
