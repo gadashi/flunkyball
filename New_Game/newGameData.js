@@ -204,8 +204,8 @@ function prepData(newGameID){
     Teams[1] = "Team1";
   }
   Teams[7] = document.getElementById("teamname2").value;
-  if(Teams[1] === ""){
-    Teams[1] = "Team2";
+  if(Teams[7] === ""){
+    Teams[7] = "Team2";
   }
   //write the playernames of each position into the array that will be saved
   for(i=2; i < 7; i++){
