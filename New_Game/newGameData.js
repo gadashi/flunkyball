@@ -116,7 +116,9 @@ function populateHiddenDiv(playerNames){
   for(var numPlayers = 0; numPlayers < playerNames.length; numPlayers++){
     text += "<button class='playerChoices' id='a" + numPlayers + "' onclick='setPlayer(" + numPlayers + ")'> " + playerNames[numPlayers][0] + "</button>";
     //init an array of Players that were locked in
-
+    if(numPlayers%6==5){
+      text += "<br>";
+    }
     Players[numPlayers] = playerNames[numPlayers][0];
   }
 
