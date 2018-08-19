@@ -203,7 +203,7 @@ function prepData(newGameID){
   for(i=2; i < 7; i++){
     Teams[i] = lockedPlayers[i-2];
     Teams[i + 6]= lockedPlayers[i+3];
-    if((Teams[i] == undefined || Teams[i + 6] == undefined) && (i-2)%6 != 5){
+    if((Teams[i] == null || Teams[i + 6] == null) && (i-2)%6 != 5){
       err = true;
       console.log("truueeee");
     }
