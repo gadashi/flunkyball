@@ -147,8 +147,8 @@ function setPlayer(playerID_Array){
   }
   
   //if another Player is in this position already reset his border color
-  if(lockedPlayers[selectedPosition] != ""){
-    document.getElementById('a' + playerID_Array).style.borderColor = "green";
+if(lockedPlayers[selectedPosition] != ""){
+  document.getElementById(lockedPlayers[selectedPosition]).style.borderColor = "green";
   }
 
   //if this player was in another position before remove him from that position
