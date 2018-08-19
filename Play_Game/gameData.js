@@ -137,13 +137,12 @@ function miss(id){
 }
 
 function done(id){
-  var whichTeam = 0;
+  
   var value = hits1;
-  if(id > 6){
-    whichTeam = 6;
+  if(id > 6){ 
     value = hits2;
   }
-  col = Alphabet[id + whichTeam];
+  col = Alphabet[id];
   UpdateCell(row + 3,col,value);
 }
 
