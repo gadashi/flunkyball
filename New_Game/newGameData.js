@@ -110,16 +110,16 @@ function populateHiddenDiv(playerNames){
   //find the hidden div and place buttons for all Players in the database
   console.log(playerNames);
   var div=document.getElementById("PlayerSelection");
-  var text="";
+  var txt="";
   for(var numPlayers = 0; numPlayers < playerNames.length; numPlayers++){
-    text += "<button class='playerChoices' id='a" + numPlayers + "' onclick='setPlayer(" + numPlayers + ")> " + playerNames[numPlayers][0] + "</button>";
+    txt += "<button class='playerChoices' id='a" + numPlayers + "' onclick='setPlayer(" + numPlayers + ")> " + playerNames[numPlayers][0] + "</button>";
     //init an array of Players that were locked in
 
     Players[numPlayers] = playerNames[numPlayers][0];
   }
     console.log(div);
   div.style.display ="block";
-  div.innerHTML = text;
+  div.innerHTML = "help pls"+txt;
 
 }
 
