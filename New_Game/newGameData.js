@@ -144,6 +144,7 @@ function setPlayer(playerID_Array){
   
   //change the color of the button with the previous Player in this position back to green if there was one before
   if(lockedPlayers[selectedPosition] != ""){
+    console.log(document.getElementById('a'+lockedPlayers[selectedPosition]),document.getElementById('a' + playerID_Array));
   document.getElementById('a'+lockedPlayers[selectedPosition]).style.borderColor = "green";
   }
   
