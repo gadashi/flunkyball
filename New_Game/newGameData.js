@@ -200,11 +200,9 @@ function prepData(newGameID){
   Teams[0] = dd + '.' + mm + '.'+ yyyy;
   //get teamnames or set default values
   Teams[1] = document.getElementById("teamname1").value;
-  console.log(Teams[1]);
   if(Teams[1] === ""){
     Teams[1] = "Team1";
   }
-
   Teams[7] = document.getElementById("teamname2").value;
   if(Teams[1] === ""){
     Teams[1] = "Team2";
