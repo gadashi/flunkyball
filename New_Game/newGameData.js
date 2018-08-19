@@ -36,7 +36,7 @@ function writeData(data,newGameID){
 
           "data": [
                     {
-                      "range": "allGames!A" + (1 + newgameID * 4) +":M"+ (newGameID * 4 +4),
+                      "range": "allGames!A" + (1 + newGameID * 4) +":M"+ (newGameID * 4 +4),
                       "values": data,
                     }
                   ],
@@ -104,7 +104,7 @@ function activeGames(gameData){
   }
   div.innerHTML = text;
   document.getElementById("beginP").innerHTML = "<button id='beginButton'onclick='prepData("+
-  gameData.length / 4 + 1+")'> Spiel starten </button>";
+  (gameData.length / 4 + 1)+")'> Spiel starten </button>";
 }
 
 var lockedPlayers = ["","","","","","","","","",""];
