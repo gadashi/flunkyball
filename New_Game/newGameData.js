@@ -221,7 +221,7 @@ function prepData(newGameID){
   //sendData(newGameID);
   }
   else{
-  document.getElementById("beginP").innerHTML  += "Bitte wähle mindestens 4 Spieler pro Team aus";
+  document.getElementById("error").innerHTML  = "Bitte wähle mindestens 4 Spieler pro Team aus";
   }
 }
 
