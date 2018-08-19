@@ -116,7 +116,6 @@ function populateHiddenDiv(playerNames){
 
     Players[numPlayers] = playerNames[numPlayers][0];
   }
-  div1.style.display ="block";
   div1.innerHTML = txt;
 
 }
@@ -125,7 +124,7 @@ var selectedPosition = 0;
 function selectPlayers(buttonID){
   //display a list of all the Players that can play and save the button that was clicked
   div=document.getElementById("PlayerSelection");
-  div.style.left = (buttonID % 10) * 100;
+  div.style.left = (buttonID % 5) * 100;
   div.style.display  = "block";
   if(lockedPlayers[buttonID] != ""){
   document.getElementById(lockedPlayers[buttonID]).style.borderColor = "black";
@@ -171,9 +170,11 @@ if(lockedPlayers[selectedPosition] != ""){
   }
   else{
     document.getElementById('a'+playerID_Array).style.borderColor = "red";
-    
   }
-
+  
+  //hide the selection div again
+  document.getElementById("PlayerSelection").style.display ="none";
+  
 }
 
 function sendData(gameID){
