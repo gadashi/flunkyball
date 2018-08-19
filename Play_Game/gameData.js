@@ -131,7 +131,7 @@ function miss(id){
     GameData[1][1+whichTeam] = 1;
   }
   else{
-    GameData[1][1+whichTeam]++1;
+    GameData[1][1+whichTeam]++;
   }
 
 
@@ -159,13 +159,13 @@ function hit(id){
     GameData[2][id] = 1;
   }
   else{
-      GameData[2][id]++1;
+      GameData[2][id]++;
   }
   if(GameData[2][1 + whichTeam] == undefined){
     GameData[2][1 + whichTeam] = 1;
   }
   else{
-    GameData[2][1 + whichTeam] ++ 1;
+    GameData[2][1 + whichTeam] ++;
   }
   col = Alphabet[id];
   UpdateCell(row + 2,col,GameData[2][id]);
