@@ -128,7 +128,7 @@ function miss(id){
 function done(id){
   
   col = Alphabet[id];
-  UpdateCell(row + 2,col,GameData[2][1]);
+  UpdateCell(row + 3,col,GameData[2][1]);
 }
 function hit(id){
   GameData[2][id] += 1;
