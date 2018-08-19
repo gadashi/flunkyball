@@ -108,6 +108,7 @@ var lockedPlayers = ["","","","","","","","","",""];
 var Players = [];
 function populateHiddenDiv(playerNames){
   //find the hidden div and place buttons for all Players in the database
+  console.log(playerNames);
   var div=document.getElementById("PlayerSelection");
   var text="";
   for(var numPlayers = 0; numPlayers < playerNames.length; numPlayers++){
@@ -116,6 +117,7 @@ function populateHiddenDiv(playerNames){
 
     Players[numPlayers] = playerNames[numPlayers][0];
   }
+  console.log(Players, text);
   div.innerHTML = text;
 
 }
