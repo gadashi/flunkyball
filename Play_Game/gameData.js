@@ -29,7 +29,7 @@ function UpdateCell(rows,cols,data) {
      spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',  // TODO: Update placeholder value.
 
      // The A1 notation of the values to update.
-     range: 'aktiveSpiele!' + cols + rows +":"+ cols + rows ,  // TODO: Update placeholder value.
+     range: 'allGames!' + cols + rows +":"+ cols + rows ,  // TODO: Update placeholder value.
 
      // How the input data should be interpreted.
      valueInputOption: 'RAW',  // TODO: Update placeholder value.
