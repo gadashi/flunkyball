@@ -201,7 +201,7 @@ function prepData(newGameID){
     Teams[i] = lockedPlayers[i-2];
     Teams[i + 6]= lockedPlayers[i+3];
   }
-  var Data =[Teams,["Daneben"],["Treffer"],["Fertig"]];
+  var Data =[Teams,["Daneben"],["Treffer"],["Fertig",0,,,,,,0]];
   writeData(Data,newGameID);
   //sendData(newGameID);
 }
