@@ -14,7 +14,7 @@ function loadData(){
         request.then(function(response) {
           // TODO: Change code below to process the `response` object:
           result = response.result;
-          respond(response.result);
+          respond(response.result.valueRanges[1]);
           console.log(response.result);
         }, function(reason) {
           console.error('error: ' + reason.result.error.message);
