@@ -201,9 +201,9 @@ function prepData(newGameID){
   Teams[1] = document.getElementById("teamname1").value;
   Teams[7] = document.getElementById("teamname2").value;
   for(i=2; i < 7; i++){
-    Teams[i] = lockedPlayers[i-2];
-    Teams[i + 6]= lockedPlayers[i+3];
-    if((Teams[i] == null || Teams[i + 6] == null) && (i-2)%6 != 5){
+    Teams[i] = Players[lockedPlayers[i-2]];
+    Teams[i + 6]= Players[lockedPlayers[i+3]];
+    if((Teams[i] == undefined || Teams[i + 6] == null) && (i-2)%6 != 5){
       err = true;
       console.log("truueeee");
     }
