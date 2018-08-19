@@ -169,8 +169,14 @@ if(lockedPlayers[selectedPosition] != ""){
   //update the text of the selected button
   buttonOfSelectedPosition.innerHTML = Players[playerID_Array];
 
-
-
+  //set the border of the newly selected Player to blue or red
+  if(selectedPosition < 5){
+    document.getElementById(playerID_Array).style.borderColor = "blue";
+  }
+  else{
+    document.getElementById(playerID_Array).style.borderColor = "red";
+    
+  }
 
 }
 
