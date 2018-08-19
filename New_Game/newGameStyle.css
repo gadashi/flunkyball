@@ -1,0 +1,83 @@
+body{
+  margin: 10px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+  line-height: 64px;
+}
+
+h1{
+  color: #111;
+  font-size: 80px;
+  margin: 0 0 0;
+  padding: 20px 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.main{
+  font-size:45px;
+}
+.games{
+  font-size:30px;
+}
+.teams{font-size: 30px;
+  margin-left:20px;
+
+  margin-bottom:5px;
+}
+.teamname{
+  border: 2px solid black;
+  margin: 5px;
+  font-size:20px;
+}
+.player{
+  width:535px;
+  border: 1px solid black;
+  height: 110px;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+.Box{
+  margin:5px;
+  width:90px;
+  height:90px;
+  border:5px solid black;
+  border-radius: 5px;
+  font-size: 50px;
+  padding-bottom: 8px;
+  transition-duration: 0.4s;
+  background-color: white;
+  vertical-align: top;
+}
+.Box:hover{
+  background-color: lightgrey;
+}
+.hidden{
+  display:none;
+  position: absolute;
+  background-color: white;
+  border: 2px solid black;
+  z-index: 2;
+}
+.playerChoices{
+  width: 50px;
+  height:50px;
+  border:5px solid darkgreen;
+  font-size: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  text-align:center;
+}
+#beginButton{
+  margin: 30px;
+  width:200px;
+  height:65px;
+  border:5px solid black;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 15px;
+  transition-duration: 0.4s;
+}
+#beginButton:hover{
+  color: white;
+  background-color: black;
+}

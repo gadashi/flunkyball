@@ -1,0 +1,81 @@
+h1{
+  color: #111;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 64px;
+  margin: 0 0 0;
+  padding: 20px 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+div{
+  margin-left: 10%;
+  margin-top: 50px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 64px;
+}
+
+form{
+  display:inline;
+}
+
+
+
+ #Spiele {
+    margin-left: 20px;
+    margin-right: 30%;
+    height: 200px;
+}
+
+#Spieler {
+  margin-left: 20px;
+  margin-right: 30%;
+  height: 200px;
+  border: 1px solid black;
+}
+
+a {
+  font-size:20px;
+  text-decoration-line: none;
+}
+body{
+  margin: 40px;
+}
+
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+td {
+  height: 50px;
+}
+
+button{
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+.right{
+margin-right:50px;
+float: right;
+
+}
