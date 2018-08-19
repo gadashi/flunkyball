@@ -117,24 +117,46 @@ var Alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L",
                 "Y","Z"];
 
 function miss(id){
-  GameData[1][id] += 1;
-  GameData[1][1] += 1;
-  col = Alphabet[id];
+  if(GameData[1][id] == undefined){
+    GameData[1][id] = 1;
+  }
+  else{
+      GameData[1][id] += 1;
+  }
+  if(GameData[1][1] == undefined){
+    GameData[1][1] = 1;
+  }
+  else{
+    GameData[1][1] += 1;
+  }
+
   console.log(GameData[1][id]);
-  UpdateCell(row + 1,col,GameData[1][id])
+  col = Alphabet[id];
+  UpdateCell(row + 1,col,GameData[1][id]);
+  UpdateCell(row + 1,"B",GameData[1][1]);
 
 }
 
 function done(id){
-  
   col = Alphabet[id];
-  UpdateCell(row + 3,col,GameData[2][1]);
+  UpdateCell(row + 2,col,GameData[2][1]);
 }
 function hit(id){
-  GameData[2][id] += 1;
-  GameData[2][1] += 1;
+  if(GameData[2][id] == undefined){
+    GameData[2][id] = 1;
+  }
+  else{
+      GameData[2][id] += 1;
+  }
+  if(GameData[2][1] == undefined){
+    GameData[2][1] = 1;
+  }
+  else{
+    GameData[2][1] += 1;
+  }
   col = Alphabet[id];
-  UpdateCell(row + 2,col,GameData[2][id])
+  UpdateCell(row + 2,col,GameData[2][id]);
+  UpdateCell(row + 2,"B",GameData[2][id]);
 }
 window.onload = function(){
   handleSignInClick();
