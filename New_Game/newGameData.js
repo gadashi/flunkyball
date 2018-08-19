@@ -108,7 +108,6 @@ var lockedPlayers = ["","","","","","","","","",""];
 var Players = [];
 function populateHiddenDiv(playerNames){
   //find the hidden div and place buttons for all Players in the database
-  console.log(playerNames);
   var div1=document.getElementById("PlayerSelection");
   var txt="";
   for(var numPlayers = 0; numPlayers < playerNames.length; numPlayers++){
@@ -117,7 +116,6 @@ function populateHiddenDiv(playerNames){
 
     Players[numPlayers] = playerNames[numPlayers][0];
   }
-    console.log(div1,txt);
   div1.style.display ="block";
   div1.innerHTML = txt;
 
@@ -142,13 +140,13 @@ function setPlayer(playerID_Array){
   position before remove him from there.
   Also update color of all changed Buttons.
   */
-
+  console.log(playerID_Array, selectedPosition);
   //change the color of the button with the previous Player in this position back to blue
-  document.getElementById(lockedPlayers[buttonID]).style.borderColor = "blue";
+  document.getElementById(lockedPlayers[buttonID]).style.borderColor = "green";
 
   //if another Player is in this position already reset his border color
   if(lockedPlayers[selectedPosition] != ""){
-    document.getElementById('a' + playerID_Array).style.borderColor = "blue";
+    document.getElementById('a' + playerID_Array).style.borderColor = "green";
   }
 
   //if this player was in another position before remove him from that position
