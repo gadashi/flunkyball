@@ -104,7 +104,7 @@ function activeGames(gameData){
   }
   div.innerHTML = text;
   document.getElementById("beginP").innerHTML = "<button id='beginButton'onclick='prepData("+
-  (gameData.length / 4 + 1)+")'> Spiel starten </button>";
+  (gameData.length / 4 )+")'> Spiel starten </button>";
 }
 
 var lockedPlayers = ["","","","","","","","","",""];
