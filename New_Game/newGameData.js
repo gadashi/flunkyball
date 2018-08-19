@@ -203,7 +203,7 @@ function prepData(newGameID){
   }
   var Data =[[Teams],["Daneben"],["Treffer"],["Fertig"]];
   writeData(Data,newGameID);
-  sendData(newGameID);
+  //sendData(newGameID);
 }
 
 function sendData(gameID){
