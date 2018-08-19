@@ -186,7 +186,7 @@ function setPlayer(playerID_Array){
 
 }
 
-prepData(newGameID){
+function prepData(newGameID){
   var Teams = [],
     today = new Date(),
     dd = today.getDate(),
