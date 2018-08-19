@@ -25,7 +25,7 @@ function read() {
 
 }
 
-function writeData(data){
+function writeData(data,newGameID){
 
   var params = {
           // The ID of the spreadsheet to update.
@@ -36,7 +36,7 @@ function writeData(data){
 
           "data": [
                     {
-                      "range": "aktiveSpiele!A" + (1 + numberOfGames * 4) +":L"+ (numberOfGames * 4 +4),
+                      "range": "allGames!A" + (1 + newgameID * 4) +":M"+ (newGameID * 4 +4),
                       "values": data,
                     }
                   ],
@@ -89,6 +89,7 @@ function handleSignOutClick() {
   gapi.auth2.getAuthInstance().signOut();
 }
 
+
 function activeGames(gameData){
   var div = document.getElementById("activeGames");
   var text ="";
@@ -102,22 +103,25 @@ function activeGames(gameData){
     }
   }
   div.innerHTML = text;
+  document.getElementById("beginP").innerHTML = "<button id='beginButton'onclick='prepData("+
+  gameData.length / 4 + 1+")'> Spiel starten </button>";
 }
 
 var lockedPlayers = ["","","","","","","","","",""];
 var Players = [];
 function populateHiddenDiv(playerNames){
   //find the hidden div and place buttons for all Players in the database
-  var div1=document.getElementById("PlayerSelection");
-  var txt="";
+  var div=document.getElementById("PlayerSelection");
+  var text="";
   for(var numPlayers = 0; numPlayers < playerNames.length; numPlayers++){
-    txt += "<button class='playerChoices' id='a" + numPlayers + "' onclick='setPlayer(" + numPlayers + ")'> " + playerNames[numPlayers][0] + "</button>";
+    text += "<button class='playerChoices' id='a" + numPlayers + "' onclick='setPlayer(" + numPlayers + ")'> " + playerNames[numPlayers][0] + "</button>";
     //init an array of Players that were locked in
 
     Players[numPlayers] = playerNames[numPlayers][0];
   }
-  div1.innerHTML = txt;
 
+  div.innerHTML = text;
+  numberOfGames = playerNames.length / 4;
 }
 
 var selectedPosition = 0;
@@ -126,9 +130,7 @@ function selectPlayers(buttonID){
   div=document.getElementById("PlayerSelection");
   div.style.left = (buttonID % 5) * 100;
   div.style.display  = "block";
-  if(lockedPlayers[buttonID] != ""){
   document.getElementById(lockedPlayers[buttonID]).style.borderColor = "black";
-  }
   selectedPosition = buttonID;
 }
 
@@ -139,23 +141,19 @@ function setPlayer(playerID_Array){
   position before remove him from there.
   Also update color of all changed Buttons.
   */
-  console.log("locked in Players:" + lockedPlayers);
+  console.log(lockedPlayers);
   console.log(playerID_Array, selectedPosition);
-  console.log(lockedPlayers[selectedPosition]);
-  
   //change the color of the button with the previous Player in this position back to green if there was one before
+  //TODO: Tobi wird nicht wieder grün
   if(lockedPlayers[selectedPosition] !== ""){
-    console.log(document.getElementById('a'+lockedPlayers[selectedPosition]),document.getElementById('a' + playerID_Array));
   document.getElementById('a'+lockedPlayers[selectedPosition]).style.borderColor = "green";
   }
-  
- //if another Player is in this position already reset his border color
+  //if another Player is in this position already reset his border color
   if(lockedPlayers[selectedPosition] !== ""){
     document.getElementById('a' + playerID_Array).style.borderColor = "green";
   }
 
-
-    //if this player was in another position before remove him from that position
+  //if this player was in another position before remove him from that position
   for(var positions = 0; positions < lockedPlayers.length; positions++){
     if(lockedPlayers[positions] == playerID_Array){
       lockedPlayers[positions] = "";
@@ -174,17 +172,37 @@ function setPlayer(playerID_Array){
   //update the text of the selected button
   buttonOfSelectedPosition.innerHTML = Players[playerID_Array];
   buttonOfSelectedPosition.style.fontSize = "20px";
+
   //set the border of the newly selected Player to blue or red
-  if(selectedPosition < 5){
-    document.getElementById('a'+playerID_Array).style.borderColor = "blue";
-  }
-  else{
-    document.getElementById('a'+playerID_Array).style.borderColor = "red";
-  }
-  
-  //hide the selection div again
+    if(selectedPosition < 5){
+      document.getElementById('a'+playerID_Array).style.borderColor = "blue";
+    }
+    else{
+      document.getElementById('a'+playerID_Array).style.borderColor = "red";
+    }
+    //hide the selection div again
   document.getElementById("PlayerSelection").style.display ="none";
-  
+
+
+}
+
+prepData(newGameID){
+  var Teams = [],
+    today = new Date(),
+    dd = today.getDate(),
+    mm = today.getMonth()+1,
+    yyyy = today.getFullYear();
+
+  Teams[0] = dd + '.' + mm + '.'+ yyyy;
+  Teams[1] = document.getElementById("teamname1").value;
+  Teams[7] = document.getElementById("teamname2").value;
+  for(i=2; i < 7; i++){
+    Teams[i] = lockedPlayers[i-2];
+    Teams[i + 6]= lockedPlayers[i+3];
+  }
+  var Data =[[Teams],["Daneben"],["Treffer"],["Fertig"]];
+  writeData(Data,newGameID);
+  sendData(newGameID);
 }
 
 function sendData(gameID){
