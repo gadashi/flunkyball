@@ -139,6 +139,8 @@ function setPlayer(playerID_Array){
   position before remove him from there.
   Also update color of all changed Buttons.
   */
+    console.log(""locked in Players:" + lockedPlayers);
+
   console.log(playerID_Array, selectedPosition);
 
   //if another Player is in this position already reset his border color
