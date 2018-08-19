@@ -59,7 +59,7 @@ function handleSignOutClick() {
 }
 
 function respond(results){
-  
+  respondPlayer(result);
 }
 
 function respondPlayer(result){
