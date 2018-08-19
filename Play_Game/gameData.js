@@ -148,7 +148,7 @@ function done(id){
     whichTeam = 6;
   }
   col = Alphabet[id + whichTeam];
-  UpdateCell(row + 2,col,GameData[2][1+whichTeam]);
+  UpdateCell(row + 3,col,GameData[2][1+whichTeam]);
 }
 function hit(id){
   var whichTeam = 0;
