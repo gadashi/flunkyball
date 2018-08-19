@@ -116,7 +116,6 @@ function populateHiddenDiv(playerNames){
 
     Players[numPlayers] = playerNames[numPlayers][0];
   }
-  div.style.left = (PlayerID_inGame % 10 - 1) * 100;
   div.innerHTML = text;
 
 }
@@ -125,6 +124,7 @@ var selectedPosition = 0;
 function selectPlayers(buttonID){
   //display a list of all the Players that can play and save the button that was clicked
   div=document.getElementById("PlayerSelection");
+  div.style.left = (buttonID % 10 - 1) * 100;
   div.style.display  = "block";
   document.getElementById(lockedPlayer[buttonID]).style.borderColor = "black";
   selectedPosition = buttonID;
