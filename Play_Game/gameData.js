@@ -144,7 +144,7 @@ function done(id){
     value = hits2;
   }
   col = Alphabet[id + whichTeam];
-  UpdateCell(row + 2,col,value);
+  UpdateCell(row + 3,col,value);
 }
 
 function hit(id){
