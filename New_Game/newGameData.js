@@ -118,7 +118,7 @@ function populateHiddenDiv(playerNames){
     Players[numPlayers] = playerNames[numPlayers][0];
   }
     console.log(div);
-  div.stye.display ="block";
+  div.style.display ="block";
   div.innerHTML = text;
 
 }
