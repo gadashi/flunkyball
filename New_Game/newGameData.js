@@ -205,6 +205,7 @@ function prepData(newGameID){
     Teams[i + 6]= lockedPlayers[i+3];
     if((Teams[i] == undefined || Teams[i + 6] == undefined) && (i-2)%6 != 5){
       err = true;
+      console.log("truueeee");
     }
   }
   var Data =[Teams,["Daneben"],["Treffer"],["Fertig",0,,,,,,0]];
