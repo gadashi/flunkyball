@@ -120,6 +120,7 @@ function miss(id){
   GameData[1][id] += 1;
   GameData[1][1] += 1;
   col = Alphabet[id];
+  console.log(GameData[1][id]);
   UpdateCell(row + 1,col,GameData[1][id])
 
 }
