@@ -139,7 +139,7 @@ function setPlayer(playerID_Array){
   position before remove him from there.
   Also update color of all changed Buttons.
   */
-    console.log(""locked in Players:" + lockedPlayers);
+    console.log("locked in Players:" + lockedPlayers);
 
   console.log(playerID_Array, selectedPosition);
 
