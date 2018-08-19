@@ -146,7 +146,6 @@ function setPlayer(playerID_Array){
   console.log(lockedPlayers);
   console.log(playerID_Array, selectedPosition);
   //change the color of the button with the previous Player in this position back to green if there was one before
-  //TODO: Tobi wird nicht wieder grün
   if(lockedPlayers[selectedPosition] !== ""){
   document.getElementById('a'+lockedPlayers[selectedPosition]).style.borderColor = "green";
   }
@@ -161,7 +160,7 @@ function setPlayer(playerID_Array){
       lockedPlayers[positions] = "";
       document.getElementById(positions).innerHTML = "+";
       document.getElementById(positions).style.fontSize = "40px";
-      break;
+
     }
   }
 
