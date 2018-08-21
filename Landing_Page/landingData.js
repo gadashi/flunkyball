@@ -6,16 +6,17 @@ function loadData(){
           spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',  // TODO: Update placeholder value.
 
           // The A1 notation of the values to retrieve.
-          ranges: ['allGames','allPlayer'],  // TODO: Update placeholder value.
+          ranges: ['allGames','allPlayers!A1:A'],  // TODO: Update placeholder value.
 
         };
 
         var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
         request.then(function(response) {
           // TODO: Change code below to process the `response` object:
+          console.log(response.result);
           result = response.result.valueRanges[1];
           respond(response.result.valueRanges[1]);
-          console.log(response.result);
+
         }, function(reason) {
           console.error('error: ' + reason.result.error.message);
         });
@@ -46,6 +47,7 @@ function handleClientLoad() {
 
 function updateSignInStatus(isSignedIn) {
   if (isSignedIn) {
+    console.log("signed in");
     loadData();
   }
 }
