@@ -184,7 +184,7 @@ function endGame(){
           PlayerData[numPlayers][5] -= -GameData[2][i];
           //check how many times it hits him to win
           if(GameData[3][team] == 1){
-            PlayerData[numPlayers][7] -= -GameData[2][i];
+            PlayerData[numPlayers][7] -= -GameData[2][team];
           }
         }
       }
