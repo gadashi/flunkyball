@@ -34,14 +34,13 @@ function writeData(data,newGameID){
         };
 
         var batchUpdateValuesRequestBody = {
-
           "data": [
                     {
                       "range": "allGames!A" + (1 + newGameID * 4) +":M"+ (newGameID * 4 +4),
                       "values": data,
                     }
                   ],
-                  valueInputOption: 'RAW',
+                  valueInputOption: 'USERENTERED',
                 };
 
         var request = gapi.client.sheets.spreadsheets.values.batchUpdate(params, batchUpdateValuesRequestBody);
