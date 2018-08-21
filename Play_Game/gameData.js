@@ -163,13 +163,11 @@ function miss(id){
   updateCell(row + 1,col,GameData[1][id]);
 }
 
-function endGame(){
+function endGame(winner){
   //update each Players stats
-  var team = 1;
 
   for(var i = 2; i < 13; i++){
     if(i == 7){i++;}
-    if(i > 7){team = 7;}
       var name = GameData[0][i];
       for(var numPlayers = 1; numPlayers < PlayerData.length;numPlayers++){
         if(PlayerData[numPlayers][0] == name){
@@ -177,14 +175,14 @@ function endGame(){
           //add a game
           PlayerData[numPlayers][1] -= -1;
           //if he won add a victory
-          PlayerData[numPlayers][2] -= -GameData[3][team];
+          PlayerData[numPlayers][2] -= -GameData[3][winner];
           //update number of throws
           PlayerData[numPlayers][4] -= -(GameData[1][i] -( GameData[2][i] * (-1)));
           //update number of hits
           PlayerData[numPlayers][5] -= -GameData[2][i];
           //check how many times it hits him to win
-          if(GameData[3][team] == 1){
-            PlayerData[numPlayers][7] -= -GameData[2][team];
+          if(GameData[3][winner] == 1){
+            PlayerData[numPlayers][7] -= -GameData[2][winner];
           }
         }
       }
@@ -193,8 +191,30 @@ function endGame(){
 }
 
 function checkIfOver(){
-
-  return false;
+  var t1Ready, t2Ready,tPlayers,t2Players;
+  for(var i = 2; i < 7; i++){
+    if(GameData[3][i] !== undefined){
+      t1Players++;
+    }
+    if(GameData[3][i + 6] !== undefined){
+      t2Players++;
+    }
+  }
+  for(var i = 2; i < 7; i++){
+    if(GameData[3][i] !== undefined){
+      t1Ready++;
+    }
+    if(GameData[3][i + 6] !== undefined){
+      t2Ready++;
+    }
+  }
+  if(t1Ready == t1Players){
+    return 1;
+  }
+  if(t2Ready == t2Players){
+    return 2;
+  }
+  return 0;
 }
 
 function done(id){
@@ -207,8 +227,11 @@ function done(id){
   col = Alphabet[id];
   updateCell(row + 3,col,value);
   GameData[3][id] = value;
-  if(checkIfOver()){
-    endGame();
+  if(checkIfOver() == 1){
+    endGame(1);
+  }
+  else if(checkIfOver() == 2){
+    endGame(7);
   }
 }
 
