@@ -119,8 +119,6 @@ function handleSignOutClick() {
 
 var GameData;
 var row =0;
-var hits1 = 0;
-var hits2 = 0;
 function populateNames(Names,gameID){
   //Teamnames:
   document.getElementById("Teamnames").innerHTML = Names.values[0][1] + " vs. " + Names.values[0][7];
@@ -129,7 +127,7 @@ function populateNames(Names,gameID){
   for(var i = 2; i < 13; i++){
     if(i != 7){
       if(Names.values[0][i] == undefined){
-        document.getElementById('row' + i ).style.display ="none";
+        document.getElementById('Spieler' + i ).style.display ="none";
       }
       else{
         document.getElementById('Spieler' + i).innerHTML = Names.values[0][i];
@@ -139,8 +137,6 @@ function populateNames(Names,gameID){
   }
   GameData = Names.values;
   row = gameID * 4 + 1;
-  hits1 = Names.values[2][1];
-  hits2 = Names.values[2][7];
 }
 
 var Alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L",
@@ -192,34 +188,27 @@ function endGame(){
   updatePlayers();
 }
 
-//TODO redo the way the game is finished
-var playersDone1 = 0;
-var playersDone2 = 0;
 function done(id){
 
-  var value = hits1;
+  var value = Names.values[2][1];;
   if(id > 6){
-    value = hits2;
-      playersDone2++;
+    value =  Names.values[2][7];
   }
-  else{  playersDone1++;}
+
   col = Alphabet[id];
   updateCell(row + 3,col,value);
   GameData[3][id] = value;
 
-  if(playersDone1 == 5 || playersDone2 == 5){
-    endGame();
-  }
 }
 
 function hit(id){
   var whichTeam = 0;
   if(id > 6){
     whichTeam = 6;
-    hits2++;
+     Names.values[2][7]++;
   }
   else{
-    hits1++;
+    Names.values[2][1];++;
   }
   if(GameData[2][id] == undefined){
     GameData[2][id] = 1;
