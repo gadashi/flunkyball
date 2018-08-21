@@ -163,6 +163,36 @@ function miss(id){
   updateCell(row + 1,col,GameData[1][id]);
 }
 
+function endGame(){
+  //update each Players stats
+  var team = 1;
+
+  for(var i = 2; i < 13; i++){
+    if(i == 7){i++;}
+    if(i > 7){team = 7;}
+      var name = GameData[0][i];
+      for(var numPlayers = 1; numPlayers < PlayerData.length;numPlayers++){
+        if(PlayerData[numPlayers][0] == name){
+          //found the player in the database now give him data
+          //add a game
+          PlayerData[numPlayers][1] += 1;
+          //if he won add a victory
+          PlayerData[numPlayers][2] += GameData[3][team];
+          //update number of throws
+          PlayerData[numPlayers][4] += GameData[1][i] + GameData[2][i];
+          //update number of hits
+          PlayerData[numPlayers][5] += GameData[2][i];
+          //check how many times it hits him to win
+          if(GameData[3][team] == 1){
+            PlayerData[numPlayers][7] += GameData[2][i];
+          }
+        }
+      }
+  }
+  updatePlayers();
+}
+
+
 var playersDone1 = 0;
 var playersDone2 = 0;
 function done(id){
@@ -201,35 +231,6 @@ function hit(id){
       GameData[2][id]++;
   }
 
-  function endGame(){
-    //update each Players stats
-    var team = 1;
-
-    for(var i = 2; i < 13; i++){
-      if(i == 7){i++;}
-      if(i > 7){team = 7;}
-        var name = GameData[0][i];
-        for(var numPlayers = 1; numPlayers < PlayerData.length;numPlayers++){
-          if(PlayerData[numPlayers][0] == name){
-            //found the player in the database now give him data
-            //add a game
-            PlayerData[numPlayers][1] += 1;
-            //if he won add a victory
-            PlayerData[numPlayers][2] += GameData[3][team];
-            //update number of throws
-            PlayerData[numPlayers][4] += GameData[1][i] + GameData[2][i];
-            //update number of hits
-            PlayerData[numPlayers][5] += GameData[2][i];
-            //check how many times it hits him to win
-            if(GameData[3][team] == 1){
-              PlayerData[numPlayers][7] += GameData[2][i];
-            }
-          }
-        }
-    }
-
-    updatePlayers();
-  }
 
   col = Alphabet[id];
   updateCell(row + 2,col,GameData[2][id]);
