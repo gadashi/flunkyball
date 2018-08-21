@@ -3,26 +3,29 @@
 //API key: AIzaSyAh2TO5vxJchkAKTL_dyIR7yOmfzrNpC5k
 //Table Id: 1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4
 
-
+var PlayerData;
 function read(gameID) {
   var params = {
-    spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',
-    range: 'allGames!A' + (gameID * 4 +1) + ':M'+(gameID * 4 +4),
-    //valueRenderOption: '',
-    //dateTimeRenderOption: '',
+    // The ID of the spreadsheet to retrieve data from.
+    spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',  // TODO: Update placeholder value.
+    // The A1 notation of the values to retrieve.
+    ranges: ['allGames!A' + (gameID * 4 +1) + ':M'+(gameID * 4 +4),"allPlayers"],  // TODO: Update placeholder value.
   };
 
-  var request = gapi.client.sheets.spreadsheets.values.get(params);
+  var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
   request.then(function(response) {
     // TODO: Change code below to process the `response` object:
     console.log(response.result);
-    populateNames(response.result,gameID);
+    populateNames(response.result.valueRanges[0],gameID);
+    PlayerData = response.result.valueRanges[1];
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });
 }
 
-function UpdateCell(rows,cols,data) {
+
+
+function updateCell(rows,cols,data) {
   console.log(cols + rows);
    var params = {
      // The ID of the spreadsheet to update.
@@ -48,6 +51,30 @@ function UpdateCell(rows,cols,data) {
      console.error('error: ' + reason.result.error.message);
    });
  }
+
+ function updatePlayers() {
+    var params = {
+      // The ID of the spreadsheet to update.
+      spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',
+      // The A1 notation of the values to update.
+      range: 'allPlayers' ,  // TODO: Update placeholder value.
+      // How the input data should be interpreted.
+      valueInputOption: 'RAW',  // TODO: Update placeholder value.
+    };
+
+    var valueRangeBody = {
+      'values': PlayerData ,// TODO: Add desired properties to the request body. All existing properties
+      // will be replaced.
+    };
+
+    var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
+    request.then(function(response) {
+      // TODO: Change code below to process the `response` object:
+      console.log(response.result);
+    }, function(reason) {
+      console.error('error: ' + reason.result.error.message);
+    });
+  }
 
 function initClient() {
   var API_KEY = 'AIzaSyAh2TO5vxJchkAKTL_dyIR7yOmfzrNpC5k';
@@ -133,17 +160,29 @@ function miss(id){
   }
 
   col = Alphabet[id];
-  UpdateCell(row + 1,col,GameData[1][id]);
+  updateCell(row + 1,col,GameData[1][id]);
 }
 
+var playerDone1 = 0;
+var playerDone2 = 0;
 function done(id){
-  
+
   var value = hits1;
-  if(id > 6){ 
+  if(id > 6){
     value = hits2;
+      playersDone2++;
   }
+  else{  playersDone1++;}
   col = Alphabet[id];
-  UpdateCell(row + 3,col,value);
+  updateCell(row + 3,col,value);
+  GameData[3][id] = value;
+  console.log(GameData[3][id]);
+  console.log(playersDone1 + "Players from Team 1 have finished the game");
+  console.log(playersDone2 + "Players from Team 2 have finished the game");
+  if(playersDone1 == 5 || playerDone2 == 5){
+    console.log("game finished");
+    endGame();
+  }
 }
 
 function hit(id){
@@ -162,8 +201,38 @@ function hit(id){
       GameData[2][id]++;
   }
 
+  function endGame(){
+    //update each Players stats
+    var team = 1;
+
+    for(var i = 2; i < 13; i++){
+      if(i == 7){i++;}
+      if(i > 7){team = 7;}
+        var name = GameData[0][i];
+        for(var numPlayers = 1; numPlayers < PlayerData.length;numPlayers++){
+          if(PlayerData[numPlayers][0] == name){
+            //found the player in the database now give him data
+            //add a game
+            PlayerData[numPlayers][1] += 1;
+            //if he won add a victory
+            PlayerData[numPlayers][2] += GameData[3][team];
+            //update number of throws
+            PlayerData[numPlayers][4] += GameData[1][i] + GameData[2][i];
+            //update number of hits
+            PlayerData[numPlayers][5] += GameData[2][i];
+            //check how many times it hits him to win
+            if(GameData[3][team] == 1){
+              PlayerData[numPlayers][7] += GameData[2][i];
+            }
+          }
+        }
+    }
+
+    updatePlayers();
+  }
+
   col = Alphabet[id];
-  UpdateCell(row + 2,col,GameData[2][id]);
+  updateCell(row + 2,col,GameData[2][id]);
 }
 window.onload = function(){
   handleSignInClick();
