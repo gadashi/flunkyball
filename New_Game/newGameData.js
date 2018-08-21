@@ -4,6 +4,7 @@
 //Table Id: 1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4
 
 function read() {
+  console.log("called");
   var params = {
        // The ID of the spreadsheet to retrieve data from.
        spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',
