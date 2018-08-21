@@ -6,7 +6,7 @@ function loadData(){
           spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',  // TODO: Update placeholder value.
 
           // The A1 notation of the values to retrieve.
-          ranges: ['allGames','allPlayers!A1:A100'],  // TODO: Update placeholder value.
+          ranges: ['allGames','allPlayer'],  // TODO: Update placeholder value.
 
         };
 
