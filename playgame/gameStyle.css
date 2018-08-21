@@ -38,6 +38,7 @@ button{
     height: 85%;
     border: 2px solid black;
     border-radius:  4px;
+    vertical-align: top;
 }
 .miss{
   background-color: red;
