@@ -233,9 +233,12 @@ function done(id){
   updateCell(row + 3,col,value);
   GameData[3][id] = value;
   if(checkIfOver() == 1){
+    console.log("Team 1 won");
     endGame(1);
   }
   else if(checkIfOver() == 2){
+    console.log("Team 2 won");
+
     endGame(7);
   }
 }
