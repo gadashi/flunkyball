@@ -232,7 +232,7 @@ function prepData(newGameID){
 }
 
 function sendData(gameID){
-  window.location = "../Play_Game/game.html?" + gameID;
+  window.location = "../playgame/game.html?" + gameID;
 }
 
 window.onload = function(){
