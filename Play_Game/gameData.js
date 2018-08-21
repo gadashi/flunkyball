@@ -190,7 +190,7 @@ function endGame(){
 
 function done(id){
 
-  var value = Names.values[2][1];;
+  var value = Names.values[2][1];
   if(id > 6){
     value =  Names.values[2][7];
   }
@@ -208,7 +208,7 @@ function hit(id){
      Names.values[2][7]++;
   }
   else{
-    Names.values[2][1];++;
+    Names.values[2][1]++;
   }
   if(GameData[2][id] == undefined){
     GameData[2][id] = 1;
