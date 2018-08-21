@@ -17,7 +17,7 @@ function read(gameID) {
     // TODO: Change code below to process the `response` object:
     console.log(response.result);
     populateNames(response.result.valueRanges[0],gameID);
-    PlayerData = response.result.valueRanges[1];
+    PlayerData = response.result.valueRanges[1].values;
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
   });
@@ -57,7 +57,7 @@ function updateCell(rows,cols,data) {
       // The ID of the spreadsheet to update.
       spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',
       // The A1 notation of the values to update.
-      range: 'allPlayers' ,  // TODO: Update placeholder value.
+      range: 'allPlayers!A1:J' ,  // TODO: Update placeholder value.
       // How the input data should be interpreted.
       valueInputOption: 'RAW',  // TODO: Update placeholder value.
     };
