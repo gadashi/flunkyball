@@ -8,7 +8,7 @@ function read() {
        // The ID of the spreadsheet to retrieve data from.
        spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',
        // The A1 notation of the values to retrieve.
-       ranges: ['allGames','allPlayers!A2:A'],
+       ranges: ['allGames','allPlayers!A2:A100'],
      };
 
      var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
