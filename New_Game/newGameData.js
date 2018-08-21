@@ -215,10 +215,13 @@ function prepData(newGameID){
       err = true;
     }
   }
-  var Data =[Teams,
+    var Data = [Teams,["Daneben"],["Treffer"],["Fertig"]];
+
+/*  var Data =[Teams,
     ["Daneben","=SUMME(C"+(4 * newGameID + 2)+":G" +(4 * newGameID + 2)+ ")",,,,,,"=SUMME(I"+(4 * newGameID + 2)+":M" +(4 * newGameID + 2)+ ")"],
     ["Treffer","=SUMME(C"+(4 * newGameID + 3)+":G" +(4 * newGameID + 3)+ ")",,,,,,"=SUMME(I"+(4 * newGameID + 3)+":M" +(4 * newGameID + 3)+ ")"],
     ["Fertig","=WENN(ANZAHLLEEREZELLEN(C"+(4 * newGameID + 4)+":G"+(4 * newGameID + 4)+")=0;1;0)",,,,,,"=WENN(ANZAHLLEEREZELLEN(I"+(4 * newGameID + 4)+":M"+(4 * newGameID + 4)+")=0;1;0)"]];
+*/
   if(!err){
   writeData(Data,newGameID);
   //sendData(newGameID);
