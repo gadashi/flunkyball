@@ -158,7 +158,7 @@ function miss(id){
   else{
       GameData[1][id]++;
   }
-
+  document.getElementById("miss" + id).innerHTML = "X <br> (" + GameData[1][id] + ')';
   col = Alphabet[id];
   updateCell(row + 1,col,GameData[1][id]);
 }
@@ -224,6 +224,7 @@ function done(id){
     value =  hits2;
   }
 
+  document.getElementById("done" + id).style.backgroundColor = "grey";
   col = Alphabet[id];
   updateCell(row + 3,col,value);
   GameData[3][id] = value;
@@ -251,6 +252,7 @@ function hit(id){
       GameData[2][id]++;
   }
 
+  document.getElementById("hit" + id).innerHTML = " &#10003; <br> (" + GameData[2][id] + ')';
 
   col = Alphabet[id];
   updateCell(row + 2,col,GameData[2][id]);
