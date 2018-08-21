@@ -179,7 +179,7 @@ function endGame(){
           //if he won add a victory
           PlayerData[numPlayers][2] -= -GameData[3][team];
           //update number of throws
-          PlayerData[numPlayers][4] -= -(GameData[1][i] + GameData[2][i]);
+          PlayerData[numPlayers][4] -= -(GameData[1][i] -( GameData[2][i] * (-1)));
           //update number of hits
           PlayerData[numPlayers][5] -= -GameData[2][i];
           //check how many times it hits him to win
