@@ -192,7 +192,7 @@ function endGame(){
   updatePlayers();
 }
 
-
+//TODO redo the way the game is finished
 var playersDone1 = 0;
 var playersDone2 = 0;
 function done(id){
@@ -206,11 +206,8 @@ function done(id){
   col = Alphabet[id];
   updateCell(row + 3,col,value);
   GameData[3][id] = value;
-  console.log(GameData[3][id]);
-  console.log(playersDone1 + "Players from Team 1 have finished the game");
-  console.log(playersDone2 + "Players from Team 2 have finished the game");
+
   if(playersDone1 == 5 || playersDone2 == 5){
-    console.log("game finished");
     endGame();
   }
 }

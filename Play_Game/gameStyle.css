@@ -18,6 +18,7 @@ body{
   float: left;
   height: 100%;
   width:45%;
+  color: blue;
 
 }
 .middle{
@@ -30,6 +31,7 @@ body{
   float:right;
   height: 100%;
   width:45%;
+  color: red;
 }
 button{
   float:inherit;
