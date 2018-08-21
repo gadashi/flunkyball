@@ -191,7 +191,7 @@ function endGame(winner){
 }
 
 function checkIfOver(){
-  var t1Ready, t2Ready,tPlayers,t2Players;
+  var t1Ready, t2Ready,t1Players,t2Players;
   for(var i = 2; i < 7; i++){
     if(GameData[3][i] !== undefined){
       t1Players++;
