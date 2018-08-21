@@ -119,6 +119,7 @@ function handleSignOutClick() {
 
 var GameData;
 var row =0;
+var hits1, hits2;
 function populateNames(Names,gameID){
   //Teamnames:
   document.getElementById("Teamnames").innerHTML = Names.values[0][1] + " vs. " + Names.values[0][7];
@@ -137,6 +138,9 @@ function populateNames(Names,gameID){
   }
   GameData = Names.values;
   row = gameID * 4 + 1;
+  hits1 = Names.values[2][1];
+  hits2 = Names.values[2][7];
+
 }
 
 var Alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L",
@@ -188,27 +192,34 @@ function endGame(){
   updatePlayers();
 }
 
+function checkIfOver(){
+
+  return false;
+}
+
 function done(id){
 
-  var value = Names.values[2][1];
+  var value =hits1;
   if(id > 6){
-    value =  Names.values[2][7];
+    value =  hits2;
   }
 
   col = Alphabet[id];
   updateCell(row + 3,col,value);
   GameData[3][id] = value;
-
+  if(checkIfOver()){
+    endGame();
+  }
 }
 
 function hit(id){
   var whichTeam = 0;
   if(id > 6){
     whichTeam = 6;
-     Names.values[2][7]++;
+     hits2++;
   }
   else{
-    Names.values[2][1]++;
+   hits1++;
   }
   if(GameData[2][id] == undefined){
     GameData[2][id] = 1;
