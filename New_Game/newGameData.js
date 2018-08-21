@@ -40,7 +40,7 @@ function writeData(data,newGameID){
                       "values": data,
                     }
                   ],
-                  valueInputOption: 'USERENTERED',
+                  valueInputOption: 'USER_ENTERED',
                 };
 
         var request = gapi.client.sheets.spreadsheets.values.batchUpdate(params, batchUpdateValuesRequestBody);
