@@ -163,8 +163,8 @@ function miss(id){
   updateCell(row + 1,col,GameData[1][id]);
 }
 
-var playerDone1 = 0;
-var playerDone2 = 0;
+var playersDone1 = 0;
+var playersDone2 = 0;
 function done(id){
 
   var value = hits1;
@@ -179,7 +179,7 @@ function done(id){
   console.log(GameData[3][id]);
   console.log(playersDone1 + "Players from Team 1 have finished the game");
   console.log(playersDone2 + "Players from Team 2 have finished the game");
-  if(playersDone1 == 5 || playerDone2 == 5){
+  if(playersDone1 == 5 || playersDone2 == 5){
     console.log("game finished");
     endGame();
   }
