@@ -175,16 +175,16 @@ function endGame(){
         if(PlayerData[numPlayers][0] == name){
           //found the player in the database now give him data
           //add a game
-          PlayerData[numPlayers][1] += 1;
+          PlayerData[numPlayers][1] -= -1;
           //if he won add a victory
-          PlayerData[numPlayers][2] += GameData[3][team];
+          PlayerData[numPlayers][2] -= -GameData[3][team];
           //update number of throws
-          PlayerData[numPlayers][4] += GameData[1][i] + GameData[2][i];
+          PlayerData[numPlayers][4] -= -(GameData[1][i] + GameData[2][i]);
           //update number of hits
-          PlayerData[numPlayers][5] += GameData[2][i];
+          PlayerData[numPlayers][5] -= -GameData[2][i];
           //check how many times it hits him to win
           if(GameData[3][team] == 1){
-            PlayerData[numPlayers][7] += GameData[2][i];
+            PlayerData[numPlayers][7] -= -GameData[2][i];
           }
         }
       }
