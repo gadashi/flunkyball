@@ -95,6 +95,7 @@ function activeGames(gameData){
   var text ="";
   //loop through all games and find all that are not finished
   for(var numGames = 0; numGames < gameData.length; numGames += 4){
+    console.log(numGames, gameData.length);
     if(gameData[numGames+3][1] != 1 && gameData[numGames+3][7] != 1){
       //means this game is active
       text += "<a href='javascript:sendData(" + numGames/4 + ");'>" +
@@ -145,7 +146,7 @@ function setPlayer(playerID_Array){
   position before remove him from there.
   Also update color of all changed Buttons.
   */
-  
+
   //change the color of the button with the previous Player in this position back to green if there was one before
   if(lockedPlayers[selectedPosition] !== ""){
   document.getElementById('a'+lockedPlayers[selectedPosition]).style.borderColor = "green";
