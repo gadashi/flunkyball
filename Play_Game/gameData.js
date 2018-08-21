@@ -128,6 +128,7 @@ function populateNames(Names,gameID){
   for(var i = 2; i < 13; i++){
     if(i != 7){
       if(Names.values[0][i] == undefined){
+        console.log(document.getElementById('Spieler' + i ).parentElement);
         document.getElementById('Spieler' + i ).parentElement.style.display ="none";
       }
       else{
