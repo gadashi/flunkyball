@@ -91,11 +91,11 @@ function displayData(result,length,id){
 }
 
 function showAll(id){
-
+  var data;
   if(id == "Spiele"){
-    var data = result.valueRanges[0];
+    data = result.valueRanges[0];
   } else {
-    var data = result.valueRanges[1];
+    data = result.valueRanges[1];
   }
   console.log(data,data.length,id)
   displayData(data,data.length,id);
