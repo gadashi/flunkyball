@@ -93,12 +93,12 @@ function displayData(result,length,id){
 function showAll(id){
   var data;
   if(id == "Spiele"){
-    data = result.valueRanges[0].values;
+    data = result.valueRanges[0];
   } else {
-    data = result.valueRanges[1].values;
+    data = result.valueRanges[1];
   }
-  console.log(data,data.length,id);
-  displayData(data,data.length,id);
+  console.log(data,data.values.length,id);
+  displayData(data,data.values.length,id);
 }
 
 window.onload = function(){
