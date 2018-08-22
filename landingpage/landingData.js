@@ -73,6 +73,7 @@ function displayData(result,length,id){
       text += "<tr>";
       var count = 0;
       id == "Spieler" ? count = 10 : count = 13;
+      console.log(count, result.values[rows].length);
       for (var cols = 0; cols < count; cols++) {
         text += '<th>'  ;
         text += result.values[rows][cols];
