@@ -133,7 +133,8 @@ function populateNames(Names,gameID){
       }
       else{
         document.getElementById('Spieler' + i).innerHTML = Names.values[0][i];
-        if(Names.values[3][i] === undefined){
+        if(Names.values[3][i] != undefined){
+          console.log(Names.values[3][i]);
           document.getElementById("done" + i).style.backgroundColor = "grey";
         }
       }
