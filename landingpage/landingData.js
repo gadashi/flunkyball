@@ -28,7 +28,7 @@ function initClient() {
 
   var CLIENT_ID = '21449399299-k4ln8srecgb3u0ejn3vdt80k3eeq1jv6.apps.googleusercontent.com';
   //   'https://www.googleapis.com/auth/spreadsheets'
-  var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
+  var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
 
   gapi.client.init({
     'apiKey': API_KEY,
