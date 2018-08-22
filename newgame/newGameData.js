@@ -49,6 +49,7 @@ function writeData(data,newGameID){
           console.log(response.result);
         }, function(reason) {
           console.error('error: ' + reason.result.error.message);
+          document.getElementById("error").innerHTML = "Du hast keine Berechtigung Spiele auszutragen. Bitte schicke eine email mit deinem Google Account an gadashi12@gmail.com um Spiele austragen zu können" ;
         });
 
 }
