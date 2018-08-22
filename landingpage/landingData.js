@@ -97,6 +97,7 @@ function showAll(id){
   } else {
     var data = result.valueRanges[1];
   }
+  console.log(data,data.length,id)
   displayData(data,data.length,id);
 }
 
