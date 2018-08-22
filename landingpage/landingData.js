@@ -6,7 +6,7 @@ function loadData(){
           spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',  // TODO: Update placeholder value.
 
           // The A1 notation of the values to retrieve.
-          ranges: ['allGames','allPlayers!A1:A'],  // TODO: Update placeholder value.
+          ranges: ['allGames','allPlayers'],  // TODO: Update placeholder value.
 
         };
 
@@ -14,8 +14,8 @@ function loadData(){
         request.then(function(response) {
           // TODO: Change code below to process the `response` object:
           console.log(response.result);
-          result = response.result.valueRanges[1];
-          respond(response.result.valueRanges[1]);
+          result = response.result;
+          respond(response.result);
 
         }, function(reason) {
           console.error('error: ' + reason.result.error.message);
@@ -61,16 +61,18 @@ function handleSignOutClick() {
 }
 
 function respond(results){
-  respondPlayer(result);
+  displayData(results.valueRanges[0],4,"Spiele")
+  displayData(results.valueRanges[1],4,"Spieler");
 }
 
-function respondPlayer(result){
-  var div = document.getElementById("Spieler");
+function displayData(result,length,id){
+  var div = document.getElementById(id);
     var text ="";
     text += "<table style='width:100%; height:100%;'>";
-    for(var rows = 0; rows<4;rows++){
+    for(var rows = 0; rows<length;rows++){
       text += "<tr>";
-      for (var cols = 0; cols < 10; cols++) {
+      id == "Spiele" ? var count = 10 : var count = 13;
+      for (var cols = 0; cols < count; cols++) {
         text += '<th>'  ;
         text += result.values[rows][cols];
         text += '</th>';
@@ -78,7 +80,18 @@ function respondPlayer(result){
       text += "</tr>";
     }
     text += "</table>";
+    div.style.height = 50 * length + "px";
     div.innerHTML = text;
+}
+
+function showAll(id){
+
+  if(id == "Spiele"){
+    var data = result.valueRanges[0];
+  } else {
+    var data = result.valueRanges[1];
+  }
+  displayData(data,data.length,id);
 }
 
 window.onload = function(){
