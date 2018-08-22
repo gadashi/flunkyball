@@ -75,12 +75,7 @@ function displayData(result,length,id){
       id == "Spieler" ? count = 10 : count = 13;
       for (var cols = 0; cols < count; cols++) {
         text += '<th>'  ;
-        if(result.values[rows][cols] != undefined){
         text += result.values[rows][cols];
-      }
-      else{
-        text += "0";
-      }
         text += '</th>';
       }
       text += "</tr>";
