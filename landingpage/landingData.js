@@ -71,7 +71,8 @@ function displayData(result,length,id){
     text += "<table style='width:100%; height:100%;'>";
     for(var rows = 0; rows<length;rows++){
       text += "<tr>";
-      id == "Spiele" ? var count = 10 : var count = 13;
+      var ocunt = 0;
+      id == "Spiele" ? count = 10 : count = 13;
       for (var cols = 0; cols < count; cols++) {
         text += '<th>'  ;
         text += result.values[rows][cols];
