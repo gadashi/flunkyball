@@ -84,7 +84,7 @@ function sortPlayers() {
         // A list of updates to apply to the spreadsheet.
         // Requests will be applied in the order they are specified.
         // If any request is not valid, no requests will be applied.
-          {
+          
             "requests": [
               {
                 "sortRange": {
@@ -102,7 +102,7 @@ function sortPlayers() {
                 }
               }
             ]
-          }
+          
 
         // TODO: Add desired properties to the request body.
       };
