@@ -23,8 +23,6 @@ function read(gameID) {
   });
 }
 
-
-
 function updateCell(rows,cols,data) {
   console.log(cols + rows);
    var params = {
@@ -75,6 +73,49 @@ function updateCell(rows,cols,data) {
       console.error('error: ' + reason.result.error.message);
     });
   }
+
+function sortPlayers() {
+      var params = {
+        // The spreadsheet to apply the updates to.
+        spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4', 
+      };
+
+      var batchUpdateSpreadsheetRequestBody = {
+        // A list of updates to apply to the spreadsheet.
+        // Requests will be applied in the order they are specified.
+        // If any request is not valid, no requests will be applied.
+          {
+            "requests": [
+              {
+                "sortRange": {
+                  "range": {
+                    "sheetId": 417876793,
+                    "startRowIndex": 1,
+                    "startColumnIndex": 0
+                  },
+                  "sortSpecs": [
+                    {
+                      "dimensionIndex": 9,
+                      "sortOrder": "DESCENDING"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+
+        // TODO: Add desired properties to the request body.
+      };
+
+      var request = gapi.client.sheets.spreadsheets.batchUpdate(params, batchUpdateSpreadsheetRequestBody);
+      request.then(function(response) {
+        // TODO: Change code below to process the `response` object:
+        console.log(response.result);
+      }, function(reason) {
+        console.error('error: ' + reason.result.error.message);
+      });
+    }
+
 
 function initClient() {
   var API_KEY = 'AIzaSyAh2TO5vxJchkAKTL_dyIR7yOmfzrNpC5k';
@@ -193,6 +234,7 @@ function endGame(winner){
       }
   }
   updatePlayers();
+  sortPlayers();
 }
 
 function checkIfOver(){
