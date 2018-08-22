@@ -93,11 +93,11 @@ function displayData(result,length,id){
 function showAll(id){
   var data;
   if(id == "Spiele"){
-    data = result.valueRanges[0];
+    data = result.valueRanges[0].values;
   } else {
-    data = result.valueRanges[1];
+    data = result.valueRanges[1].values;
   }
-  console.log(data,data.length,id,result.valueRanges[0].length)
+  console.log(data,data.length,id);
   displayData(data,data.length,id);
 }
 
