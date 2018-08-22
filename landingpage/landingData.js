@@ -76,8 +76,14 @@ function displayData(result,length,id){
       console.log(count, result.values[rows].length);
       for (var cols = 0; cols < count; cols++) {
         text += '<th>'  ;
-        text += result.values[rows][cols];
+        if(result.values[][] == undefined){
+        text += "0";
+        }
+        else{
+          text += result.values[rows][cols];
+        }
         text += '</th>';
+         
       }
       text += "</tr>";
     }
