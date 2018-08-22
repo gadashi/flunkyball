@@ -127,7 +127,7 @@ function populateNames(Names,gameID){
   //write the names of the Players over the buttons if there are only 4 players hide the buttons
   for(var i = 2; i < 13; i++){
     if(i != 7){
-      if(Names.values[0][i] == undefined){
+      if(Names.values[0][i] == undefined || Names.values[0][i] == "" ){
         console.log(document.getElementById('Spieler' + i ).parentElement);
         document.getElementById('Spieler' + i ).parentElement.style.display ="none";
       }
