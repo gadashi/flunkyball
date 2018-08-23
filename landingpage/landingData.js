@@ -61,8 +61,8 @@ function handleSignOutClick() {
 }
 
 function respond(results){
-  displayData(results.valueRanges[0],4,"Spiele")
-  displayData(results.valueRanges[1],4,"Spieler");
+  displayGames(results.valueRanges[0],4);
+  displayPlayers(results.valueRanges[1],4);
 }
 
 function displayGames(result,length){
