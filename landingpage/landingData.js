@@ -65,16 +65,38 @@ function respond(results){
   displayData(results.valueRanges[1],4,"Spieler");
 }
 
-function displayData(result,length,id){
-  var div = document.getElementById(id);
+function displayGames(result,length){
+  var div = document.getElementById("Spiele");
     var text ="";
     text += "<table style='width:100%; height:100%; border-top: 3px solid black;'>";
+    for(var rows = result.values.length - 1; rows > result.values.length - length;rows -= 4){
+      for(var rows2 = rows - 3; rows2 < rows; rows++){
+        text += "<tr>";
+        for (var cols = 0; cols < 13; cols++) {
+          text += '<th>'  ;
+          if(result.values[rows2][cols] == undefined || result.values[rows2][cols] == ""){
+            text += "0";
+          }
+          else{
+            text += result.values[rows2][cols];
+          }
+          text += '</th>';         
+        }
+      }
+      text += "</tr>";
+    }
+    text += "</table>";
+    div.style.height = 50 * length + "px";
+    div.innerHTML = text;
+}
+
+function displayPlayers(result,length){
+var div = document.getElementById("Spiele");
+    var text ="";
+    text += "<table style='width:100%; height:100%;'>";
     for(var rows = 0; rows<length;rows++){
       text += "<tr>";
-      var count = 0;
-      id == "Spieler" ? count = 10 : count = 13;
-      console.log(count, result.values[rows].length);
-      for (var cols = 0; cols < count; cols++) {
+      for (var cols = 0; cols < 13; cols++) {
         text += '<th>'  ;
         if(result.values[rows][cols] == undefined || result.values[rows][cols] == ""){
         text += "0";
@@ -82,8 +104,7 @@ function displayData(result,length,id){
         else{
           text += result.values[rows][cols];
         }
-        text += '</th>';
-         
+        text += '</th>';         
       }
       text += "</tr>";
     }
@@ -96,11 +117,15 @@ function showAll(id){
   var data;
   if(id == "Spiele"){
     data = result.valueRanges[0];
+    displayGames(data,data.values.length);
+    
   } else {
     data = result.valueRanges[1];
+    displayPlayers(data,data.values.length);
+    
   }
-  console.log(data,data.values.length,id);
-  displayData(data,data.values.length,id);
+  console.log(data,data.values.length);
+  displayGames(data,data.values.length);
 }
 
 window.onload = function(){
