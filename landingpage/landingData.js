@@ -101,7 +101,7 @@ var div = document.getElementById("Spieler");
     text += "<table style='width:100%; height:100%;'>";
     for(var rows = 0; rows<length;rows++){
       text += "<tr>";
-      for (var cols = 0; cols < 13; cols++) {
+      for (var cols = 0; cols < 10; cols++) {
         text += '<th>'  ;
         if(result.values[rows][cols] == undefined || result.values[rows][cols] == ""){
         text += "0";
