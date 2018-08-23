@@ -221,7 +221,9 @@ function endGame(winner){
           //add a game
           PlayerData[numPlayers][1] -= -1;
           //if he won add a victory
-          PlayerData[numPlayers][2] -= -GameData[3][winner];
+          if( (winner == 1 && i < 7) || (winner == 7 && i > 7)){
+          PlayerData[numPlayers][2] -= -1;
+          } 
           //update number of throws
           PlayerData[numPlayers][4] -= -(GameData[1][i] -( GameData[2][i] * (-1)));
           //update number of hits
