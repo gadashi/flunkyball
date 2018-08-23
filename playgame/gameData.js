@@ -10,7 +10,6 @@ function read(gameID) {
     spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',  // TODO: Update placeholder value.
     // The A1 notation of the values to retrieve.
     ranges: ['allGames!A' + (gameID * 4 +1) + ':M'+(gameID * 4 +4),"allPlayers"],  // TODO: Update placeholder value.
-    valueRenderOption: 'FORMULA',
   };
 
   var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
