@@ -76,7 +76,7 @@ function displayData(result,length,id){
       console.log(count, result.values[rows].length);
       for (var cols = 0; cols < count; cols++) {
         text += '<th>'  ;
-        if(result.values[rows][cols] == undefined){
+        if(result.values[rows][cols] == undefined || result.values[rows][cols] == ""){
         text += "0";
         }
         else{
