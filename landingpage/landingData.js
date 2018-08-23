@@ -96,7 +96,7 @@ function displayGames(result,length){
 }
 
 function displayPlayers(result,length){
-var div = document.getElementById("Spiele");
+var div = document.getElementById("Spieler");
     var text ="";
     text += "<table style='width:100%; height:100%;'>";
     for(var rows = 0; rows<length;rows++){
