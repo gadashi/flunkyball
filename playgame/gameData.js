@@ -256,6 +256,7 @@ function checkIfOver(){
       t2Ready++;
     }
   }
+  console.log(t1Ready,t2Ready);
   if(t1Ready == t1Players){
     return 1;
   }
