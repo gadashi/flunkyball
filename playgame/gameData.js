@@ -241,18 +241,18 @@ function endGame(winner){
 function checkIfOver(){
   var t1Ready = 0, t2Ready = 0,t1Players = 0,t2Players = 0;
   for(var i = 2; i < 7; i++){
-    if(GameData[0][i] !== undefined || GameData[0][i] !== ""){
+    if(!(GameData[0][i] === undefined || GameData[0][i] === "")){
       t1Players++;
     }
-    if(GameData[0][i + 6] !== undefined || GameData[0][i + 6] !== ""){
+    if(!(GameData[0][i + 6] === undefined || GameData[0][i + 6] === "")){
       t2Players++;
     }
   }
   for(var i = 2; i < 7; i++){
-    if(GameData[3][i] !== undefined || GameData[3][i] !== ""){
+    if(!(GameData[3][i] === undefined || GameData[3][i] === "")){
       t1Ready++;
     }
-    if(GameData[3][i + 6] !== undefined || GameData[3][i + 6] !== ""){
+    if(!(GameData[3][i + 6] === undefined || GameData[3][i + 6] === "")){
       t2Ready++;
     }
   }
