@@ -80,7 +80,7 @@ function displayGames(result,length){
         for (var cols = 0; cols < 13; cols++) { 
           switch(cols){
             case 1:
-              text += "<th style='color: blue; border-right: 2px solid black;'>";
+              text += "<th style='color: blue; border-left: 2px solid black;'>";
               break;
             case 7:
               text += "<th style='color: red; border-left: 2px solid black;'>";
