@@ -233,8 +233,9 @@ function endGame(winner){
         }
       }
   }
+  console.log(PlayerData);
   updatePlayers();
-  sortPlayers();
+  //sortPlayers();
 }
 
 function checkIfOver(){
