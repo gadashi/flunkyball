@@ -89,7 +89,7 @@ function displayGames(result,length){
               text += "<th style='color: red; border-left: 2px solid red;'>";
               break;
             case 12:
-              text += "<th style=' border-left: 2px solid black;'>";
+              text += "<th style=' border-right: 2px solid black;'>";
               break;
             default: 
               text += "<th>";
