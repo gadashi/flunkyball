@@ -70,7 +70,7 @@ function displayGames(result,length){
     var text ="";
     text += "<table style='width:100%; height:100%; '>";
     for(var rows = result.values.length - 1; rows > result.values.length - length;rows -= 4){
-      for(var rows2 = rows - 3; rows2 < rows; rows++){
+      for(var rows2 = rows - 3; rows2 < rows; rows2++){
         text += "<tr style='border-top: 3px solid black;'>";
         for (var cols = 0; cols < 13; cols++) {
           text += '<th>'  ;
