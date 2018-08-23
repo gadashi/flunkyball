@@ -129,8 +129,6 @@ function showAll(id){
     displayPlayers(data,data.values.length);
     
   }
-  console.log(data,data.values.length);
-  displayGames(data,data.values.length);
 }
 
 window.onload = function(){
