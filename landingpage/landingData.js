@@ -70,15 +70,28 @@ function displayGames(result,length){
     var text ="";
     text += "<table style='width:100%; height:100%; '>";
     for(var rows = result.values.length - 1; rows > result.values.length - length;rows -= 4){
-      for(var rows2 = rows - 3; rows2 < rows; rows2++){
+      for(var rows2 = rows - 3; rows2 <= rows; rows2++){
         if(rows2 % 4 == 0){
         text += "<tr style='border-top: 3px solid black;'>";
         }
         else{
         text += "<tr>";
         }
-        for (var cols = 0; cols < 13; cols++) {
-          text += '<th>'  ;
+        for (var cols = 0; cols < 13; cols++) { 
+          switch(cols){
+            case 0:
+              text += "<th style='border-right: 2px solid black;'>";
+              break;
+            case 1:
+              text += "<th style='color: blue;'>";
+              break;
+            case 7:
+              text += "<th style='color: blue; border-left: 2px solid black;'>";
+              break;
+            default: 
+              text += "<th>";
+          
+          }
           if(result.values[rows2][cols] == undefined || result.values[rows2][cols] == ""){
             text += "0";
           }
