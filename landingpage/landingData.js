@@ -68,7 +68,7 @@ function respond(results){
 function displayData(result,length,id){
   var div = document.getElementById(id);
     var text ="";
-    text += "<table style='width:100%; height:100%;'>";
+    text += "<table style='width:100%; height:100%; border-top: 3px solid black;'>";
     for(var rows = 0; rows<length;rows++){
       text += "<tr>";
       var count = 0;
