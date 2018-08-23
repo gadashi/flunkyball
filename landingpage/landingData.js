@@ -104,5 +104,5 @@ function showAll(id){
 }
 
 window.onload = function(){
-  handleSignInClick();
+  loadData();
 }
