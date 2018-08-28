@@ -25,7 +25,7 @@ function read(gameID) {
 }
 
 function updateCell(rows,cols,data) {
-  console.log(cols + rows);
+  //console.log(cols + rows);
    var params = {
      // The ID of the spreadsheet to update.
      spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',  // TODO: Update placeholder value.
@@ -45,7 +45,7 @@ function updateCell(rows,cols,data) {
    var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
    request.then(function(response) {
      // TODO: Change code below to process the `response` object:
-     console.log(response.result);
+     //console.log(response.result);
    }, function(reason) {
      console.error('error: ' + reason.result.error.message);
    });
@@ -69,7 +69,7 @@ function updateCell(rows,cols,data) {
     var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
     request.then(function(response) {
       // TODO: Change code below to process the `response` object:
-      console.log(response.result);
+      //console.log(response.result);
     }, function(reason) {
       console.error('error: ' + reason.result.error.message);
     });
@@ -170,7 +170,7 @@ function populateNames(Names,gameID){
   for(var i = 2; i < 13; i++){
     if(i != 7){
       if(Names.values[0][i] == undefined || Names.values[0][i] == "" ){
-        console.log(document.getElementById('Spieler' + i ).parentElement);
+        //console.log(document.getElementById('Spieler' + i ).parentElement);
         document.getElementById('Spieler' + i ).parentElement.style.display ="none";
       }
       else{
@@ -187,6 +187,7 @@ function populateNames(Names,gameID){
   row = gameID * 4 + 1;
   for(var i = 2; i < 7;i++){
     hits1 += Names.values[2][i];
+    console.log(Names.values[2][i]);
     hits2 += Names.values[2][i+6];
   }
 }
@@ -237,7 +238,7 @@ function endGame(winner){
         }
       }
   }
-  console.log(PlayerData);
+  //console.log(PlayerData);
   updatePlayers();
   //sortPlayers();
 }
@@ -260,7 +261,7 @@ function checkIfOver(){
       t2Ready++;
     }
   }
-  console.log(t1Ready,t2Ready,t1Players,t2Players);
+  //console.log(t1Ready,t2Ready,t1Players,t2Players);
   if(t1Ready == t1Players){
     return 1;
   }
