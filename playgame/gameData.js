@@ -190,14 +190,16 @@ function populateNames(Names,gameID){
       hits1 = 0;
     } else {
       hits1 -= -Names.values[2][i];
+
     }
     if(Names.values[2][i+6] == "" || Names.values[2][i+6] == undefined){
       hits2 = 0;
     } else {
       hits2 -= -Names.values[2][i+6];
     }
+    console.log(Names.values[2][i]);
     console.log(hits1);
-    console.log(hits2);            
+    console.log(hits2);
   }
 }
 
