@@ -78,14 +78,14 @@ function updateCell(rows,cols,data) {
 function sortPlayers() {
       var params = {
         // The spreadsheet to apply the updates to.
-        spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4', 
+        spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4',
       };
 
       var batchUpdateSpreadsheetRequestBody = {
         // A list of updates to apply to the spreadsheet.
         // Requests will be applied in the order they are specified.
         // If any request is not valid, no requests will be applied.
-          
+
             "requests": [
               {
                 "sortRange": {
@@ -103,7 +103,7 @@ function sortPlayers() {
                 }
               }
             ]
-          
+
 
         // TODO: Add desired properties to the request body.
       };
@@ -225,7 +225,7 @@ function endGame(winner){
           //if he won add a victory
           if( (winner == 1 && i < 7) || (winner == 7 && i > 7)){
           PlayerData[numPlayers][2] -= -1;
-          } 
+          }
           //update number of throws
           PlayerData[numPlayers][4] -= -(GameData[1][i] -( GameData[2][i] * (-1)));
           //update number of hits
