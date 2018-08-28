@@ -1,37 +1,34 @@
 <html>
 <head>
   <title>Flunkyball Bremen</title>
-  <link href="style.css" rel="stylesheet">
-  <script src="getPlayerStats.js"></script>
+  <link href="landingpage/landingStyle.css" rel="stylesheet">
+  <script src="landingpage/landingData.js"></script>
   <script async defer src="https://apis.google.com/js/api.js"
     onload="this.onload=function(){};handleClientLoad()"
     onreadystatechange="if (this.readyState === 'complete') this.onload()">
   </script>
-
 </head>
+
 <body>
-  <h1>Flunkyball <form action="hostGame/index.html">
+  <h1>
+    Flunkyball <form action="newgame/newGame.html">
     <button type="submit"class="right"> Spiel austragen </button>
-  </form></h1>
-
-
+    </form>
+  </h1>
 
   <div>
     Spiele   &ensp;
-    <button> alle anzeigen</button>
-    <br>
-    <div id="Spiele" >
-
-    </div>
-    <br>
-
+      <button onclick="showAll('Spiele');"> alle anzeigen</button>
+      <br>
+      <div id="Spiele" >
+      </div>
+      <br>
 
     Spieler  &ensp;
-    <button onclick="buttonExpand();"> alle anzeigen</button>
-    <br>
-    <div id="Spieler" >
-
-
-
+      <button onclick="showAll('Spieler');"> alle anzeigen</button>
+      <br>
+      <div id="Spieler">
+      </div>
   </div>
 </body>
+</html>

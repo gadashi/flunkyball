@@ -24,8 +24,6 @@ function read(gameID) {
   });
 }
 
-
-
 function updateCell(rows,cols,data) {
   console.log(cols + rows);
    var params = {
@@ -76,6 +74,49 @@ function updateCell(rows,cols,data) {
       console.error('error: ' + reason.result.error.message);
     });
   }
+
+function sortPlayers() {
+      var params = {
+        // The spreadsheet to apply the updates to.
+        spreadsheetId: '1QC0B1p0LdTS2vE8l-bE8zueFOiBqUctHLeWZSzxWFb4', 
+      };
+
+      var batchUpdateSpreadsheetRequestBody = {
+        // A list of updates to apply to the spreadsheet.
+        // Requests will be applied in the order they are specified.
+        // If any request is not valid, no requests will be applied.
+          
+            "requests": [
+              {
+                "sortRange": {
+                  "range": {
+                    "sheetId": 417876793,
+                    "startRowIndex": 1,
+                    "startColumnIndex": 0
+                  },
+                  "sortSpecs": [
+                    {
+                      "dimensionIndex": 9,
+                      "sortOrder": "DESCENDING"
+                    }
+                  ]
+                }
+              }
+            ]
+          
+
+        // TODO: Add desired properties to the request body.
+      };
+
+      var request = gapi.client.sheets.spreadsheets.batchUpdate(params, batchUpdateSpreadsheetRequestBody);
+      request.then(function(response) {
+        // TODO: Change code below to process the `response` object:
+        console.log(response.result);
+      }, function(reason) {
+        console.error('error: ' + reason.result.error.message);
+      });
+    }
+
 
 function initClient() {
   var API_KEY = 'AIzaSyAh2TO5vxJchkAKTL_dyIR7yOmfzrNpC5k';
@@ -182,7 +223,9 @@ function endGame(winner){
           //add a game
           PlayerData[numPlayers][1] -= -1;
           //if he won add a victory
-          PlayerData[numPlayers][2] -= -GameData[3][winner];
+          if( (winner == 1 && i < 7) || (winner == 7 && i > 7)){
+          PlayerData[numPlayers][2] -= -1;
+          } 
           //update number of throws
           PlayerData[numPlayers][4] -= -(GameData[1][i] -( GameData[2][i] * (-1)));
           //update number of hits
@@ -194,27 +237,30 @@ function endGame(winner){
         }
       }
   }
+  console.log(PlayerData);
   updatePlayers();
+  //sortPlayers();
 }
 
 function checkIfOver(){
-  var t1Ready, t2Ready,t1Players,t2Players;
+  var t1Ready = 0, t2Ready = 0,t1Players = 0,t2Players = 0;
   for(var i = 2; i < 7; i++){
-    if(GameData[3][i] !== undefined){
+    if(!(GameData[0][i] === undefined || GameData[0][i] === "")){
       t1Players++;
     }
-    if(GameData[3][i + 6] !== undefined){
+    if(!(GameData[0][i + 6] === undefined || GameData[0][i + 6] === "")){
       t2Players++;
     }
   }
   for(var i = 2; i < 7; i++){
-    if(GameData[3][i] !== undefined){
+    if(!(GameData[3][i] === undefined || GameData[3][i] === "")){
       t1Ready++;
     }
-    if(GameData[3][i + 6] !== undefined){
+    if(!(GameData[3][i + 6] === undefined || GameData[3][i + 6] === "")){
       t2Ready++;
     }
   }
+  console.log(t1Ready,t2Ready,t1Players,t2Players);
   if(t1Ready == t1Players){
     return 1;
   }

@@ -28,7 +28,7 @@ function initClient() {
 
   var CLIENT_ID = '21449399299-k4ln8srecgb3u0ejn3vdt80k3eeq1jv6.apps.googleusercontent.com';
   //   'https://www.googleapis.com/auth/spreadsheets'
-  var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
+  var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
 
   gapi.client.init({
     'apiKey': API_KEY,
@@ -61,23 +61,71 @@ function handleSignOutClick() {
 }
 
 function respond(results){
-  displayData(results.valueRanges[0],4,"Spiele")
-  displayData(results.valueRanges[1],4,"Spieler");
+  displayGames(results.valueRanges[0],4);
+  displayPlayers(results.valueRanges[1],4);
 }
 
-function displayData(result,length,id){
-  var div = document.getElementById(id);
+function displayGames(result,length){
+  var div = document.getElementById("Spiele");
+    var text ="";
+    text += "<table style='width:100%; height:100%; '>";
+    for(var rows = result.values.length - 1; rows > result.values.length - length;rows -= 4){
+      for(var rows2 = rows - 3; rows2 <= rows; rows2++){
+        if(rows2 % 4 == 0){
+        text += "<tr style='border-top: 3px solid black; border-bottom: 2px solid black'>";
+        }
+        else{
+        text += "<tr>";
+        }
+        for (var cols = 0; cols < 13; cols++) { 
+          switch(cols){
+            case 0: 
+              text += "<th style='border-left: 3px solid black;'>";
+              break;
+            case 1:
+              text += "<th style='color: blue; border-left: 2px solid blue;'>";
+              break;
+            case 7:
+              text += "<th style='color: red; border-left: 2px solid red;'>";
+              break;
+            case 12:
+              text += "<th style=' border-right: 3px solid black;'>";
+              break;
+            default: 
+              text += "<th>";
+          
+          }
+          if(result.values[rows2][cols] == undefined || result.values[rows2][cols] == ""){
+            text += "0";
+          }
+          else{
+            text += result.values[rows2][cols];
+          }
+          text += '</th>';         
+        }
+      }
+      text += "</tr>";
+    }
+    text += "</table>";
+    div.style.height = 50 * length + "px";
+    div.innerHTML = text;
+}
+
+function displayPlayers(result,length){
+var div = document.getElementById("Spieler");
     var text ="";
     text += "<table style='width:100%; height:100%;'>";
     for(var rows = 0; rows<length;rows++){
       text += "<tr>";
-      var count = 0;
-      id == "Spieler" ? count = 10 : count = 13;
-      console.log(count, result.values[rows].length);
-      for (var cols = 0; cols < count; cols++) {
+      for (var cols = 0; cols < 10; cols++) {
         text += '<th>'  ;
-        text += result.values[rows][cols];
-        text += '</th>';
+        if(result.values[rows][cols] == undefined || result.values[rows][cols] == ""){
+        text += "0";
+        }
+        else{
+          text += result.values[rows][cols];
+        }
+        text += '</th>';         
       }
       text += "</tr>";
     }
@@ -90,13 +138,15 @@ function showAll(id){
   var data;
   if(id == "Spiele"){
     data = result.valueRanges[0];
+    displayGames(data,data.values.length);
+    
   } else {
     data = result.valueRanges[1];
+    displayPlayers(data,data.values.length);
+    
   }
-  console.log(data,data.values.length,id);
-  displayData(data,data.values.length,id);
 }
 
 window.onload = function(){
-  handleSignInClick();
+  loadData();
 }
