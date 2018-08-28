@@ -196,8 +196,8 @@ function populateNames(Names,gameID){
     } else {
       hits2 -= -Names.values[2][i+6];
     }
-    console.log(Names.values[2][i]);
-    console.log(Names.values[2][i+6]);            
+    console.log(hits1);
+    console.log(hits2);            
   }
 }
 
