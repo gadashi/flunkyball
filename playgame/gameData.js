@@ -186,9 +186,9 @@ function populateNames(Names,gameID){
   GameData = Names.values;
   row = gameID * 4 + 1;
   for(var i = 2; i < 7;i++){
-    hits1 += Names.values[2][i];
+    hits1 -= -Names.values[2][i];
     console.log(Names.values[2][i]);
-    hits2 += Names.values[2][i+6];
+    hits2 -= -Names.values[2][i+6];
   }
 }
 
