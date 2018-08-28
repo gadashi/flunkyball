@@ -186,9 +186,18 @@ function populateNames(Names,gameID){
   GameData = Names.values;
   row = gameID * 4 + 1;
   for(var i = 2; i < 7;i++){
-    hits1 -= -Names.values[2][i];
+    if(Names.values[2][i] == "" || Names.values[2][i] == undefined){
+      hits1 = 0;
+    } else {
+      hits1 -= -Names.values[2][i];
+    }
+    if(Names.values[2][i+6] == "" || Names.values[2][i+6] == undefined){
+      hits2 = 0;
+    } else {
+      hits2 -= -Names.values[2][i+6];
+    }
     console.log(Names.values[2][i]);
-    hits2 -= -Names.values[2][i+6];
+    console.log(Names.values[2][i+6]);            
   }
 }
 
