@@ -326,6 +326,28 @@ function hit(id){
   col = Alphabet[id];
   updateCell(row + 2,col,GameData[2][id]);
 }
+
+  function lastthrow(type, id){
+    this.type = type;
+    this.id = id;
+  }
+
+var lastThrow;
+
+function undo(){
+  //subtract from hits if was hit, change spreadsheet, if he was ready color the button
+  if(lastThrow.type == "miss"){
+    
+  }
+  elseif(lastThrow.type == "hit"){
+    
+  }
+  elseif(lastThrow.type == "done"){
+  
+  }
+  
+}
+
 window.onload = function(){
   handleSignInClick();
 }
