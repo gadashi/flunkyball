@@ -208,6 +208,7 @@ var Alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L",
                 "Y","Z"];
 
 function miss(id){
+  lastThrows.push(throws("miss",id));
   var whichTeam = 0;
   if(id > 6){
     whichTeam = 6;
@@ -285,6 +286,8 @@ function checkIfOver(){
 function done(id){
 
   //if someone isdone check if whole team is done and update the data in the table
+  
+  lastThrows.push(throws("done",id));
   var value = hits1;
   if(id > 6){
     value =  hits2;
@@ -306,6 +309,7 @@ function done(id){
 }
 
 function hit(id){
+  lastThrows.push(throws("hit",id));
   var whichTeam = 0;
   if(id > 6){
     whichTeam = 6;
@@ -327,25 +331,26 @@ function hit(id){
   updateCell(row + 2,col,GameData[2][id]);
 }
 
-  function lastthrow(type, id){
+  function throws(type, id){
     this.type = type;
     this.id = id;
   }
 
-var lastThrow;
+var lastThrows;
 
 function undo(){
   //subtract from hits if was hit, change spreadsheet, if he was ready color the button
-  if(lastThrow.type == "miss"){
+  var lastthrow = lastThrows.splice(-1);
+  var col = Alphabet[lastthrow.id];
+  if(lastthrow.type == "miss"){
     
   }
-  elseif(lastThrow.type == "hit"){
+  else if(lastthrow.type == "hit"){
     
   }
-  elseif(lastThrow.type == "done"){
+  else if(lastthrow.type == "done"){
   
   }
-  
 }
 
 window.onload = function(){
