@@ -209,10 +209,6 @@ var Alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L",
 
 function miss(id){
   lastThrows.push(throws("miss",id));
-  var whichTeam = 0;
-  if(id > 6){
-    whichTeam = 6;
-  }
   if(GameData[1][id] == undefined){
     GameData[1][id] = 1;
   }
@@ -310,9 +306,7 @@ function done(id){
 
 function hit(id){
   lastThrows.push(throws("hit",id));
-  var whichTeam = 0;
   if(id > 6){
-    whichTeam = 6;
     hits2++;
   }
   else{
@@ -343,13 +337,26 @@ function undo(){
   var lastthrow = lastThrows.splice(-1);
   var col = Alphabet[lastthrow.id];
   if(lastthrow.type == "miss"){
-    
+    GameData[1][id] -= 1;
+    updateCell(row+1,col,GameData[1][id]);
+    document.getElementById("miss" + id).innerHTML = " &#10003; <br> (" + GameData[1][id] + ')';
   }
   else if(lastthrow.type == "hit"){
+    GameData[2][id] -= 1;
+    updateCell(row+2,col,GameData[2][id]);
+    document.getElementById("hit" + id).innerHTML = " &#10003; <br> (" + GameData[2][id] + ')';
+    if(id > 6){
+      hits2 -= 1;
+    }
+    else{
+      hits1 -= 1;
+    }
     
   }
   else if(lastthrow.type == "done"){
-  
+    GameData[3][id] = "";
+    updateCell(row+3,col,undefined);
+    document.getElementById("done" + id).style.backgroundColor = "gold";
   }
 }
 
