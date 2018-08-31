@@ -203,12 +203,21 @@ function populateNames(Names,gameID){
   }
 }
 
+
+var lastThrows = [];
+
+  function throws(type, id){
+    this.type = type;
+    this.id = id;
+  }
+
 var Alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L",
                 "M","N","O","P","Q","R","S","T","U","V","W","X",
                 "Y","Z"];
 
 function miss(id){
   lastThrows.push(throws("miss",id));
+  console.log(throws("miss",id));
   if(GameData[1][id] == undefined){
     GameData[1][id] = 1;
   }
@@ -279,7 +288,6 @@ function checkIfOver(){
   return 0;
 }
 
-var lastThrows = [];
 
 function done(id){
   //if someone isdone check if whole team is done and update the data in the table
@@ -326,10 +334,6 @@ function hit(id){
   updateCell(row + 2,col,GameData[2][id]);
 }
 
-  function throws(type, id){
-    this.type = type;
-    this.id = id;
-  }
 
 
 function undo(){
