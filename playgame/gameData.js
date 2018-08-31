@@ -254,7 +254,8 @@ function endGame(winner){
   }
   //console.log(PlayerData);
   updatePlayers();
-  //sortPlayers();
+  sortPlayers();
+  window.location.href="gadashi.github.io/flunkyball";
 }
 
 function checkIfOver(){
