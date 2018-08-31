@@ -148,5 +148,5 @@ function showAll(id){
 }
 
 window.onload = function(){
-  loadData();
+  handleSignInClick()
 }
