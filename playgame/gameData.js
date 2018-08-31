@@ -338,18 +338,18 @@ function undo(){
   //subtract from hits if was hit, change spreadsheet, if he was ready color the button
   console.log(lastThrows);
   var lastthrow = lastThrows.pop();
-  var col = Alphabet[lastthrow.id];
-  console.log("called",lastthrow,lastthrow.type,lastthrow.id);
+  var col = Alphabet[lastthrow._id];
+  console.log("called",lastthrow,lastthrow.type,lastthrow._id);
   if(lastthrow.type == "miss"){
-    GameData[1][id] -= 1;
-    updateCell(row+1,col,GameData[1][id]);
-    document.getElementById("miss" + id).innerHTML = " &#10003; <br> (" + GameData[1][id] + ')';
+    GameData[1][lastthrow._id] -= 1;
+    updateCell(row+1,col,GameData[1][lastthrow._id]);
+    document.getElementById("miss" + lastthrow._id).innerHTML = " &#10003; <br> (" + GameData[1][lastthrow._id + ')';
   }
   else if(lastthrow.type == "hit"){
-    GameData[2][id] -= 1;
-    updateCell(row+2,col,GameData[2][id]);
-    document.getElementById("hit" + id).innerHTML = " &#10003; <br> (" + GameData[2][id] + ')';
-    if(id > 6){
+    GameData[2][lastthrow._id] -= 1;
+    updateCell(row+2,col,GameData[2][lastthrow._id]);
+    document.getElementById("hit" + lastthrow._id).innerHTML = " &#10003; <br> (" + GameData[2][lastthrow._id] + ')';
+    if(lastthrow._id > 6){
       hits2 -= 1;
     }
     else{
@@ -358,9 +358,9 @@ function undo(){
     
   }
   else if(lastthrow.type == "done"){
-    GameData[3][id] = "";
+    GameData[3][lastthrow._id] = "";
     updateCell(row+3,col,undefined);
-    document.getElementById("done" + id).style.backgroundColor = "gold";
+    document.getElementById("done" + lastthrow._id).style.backgroundColor = "gold";
   }
 }
 
