@@ -279,8 +279,9 @@ function checkIfOver(){
   return 0;
 }
 
-function done(id){
+var lastThrows;
 
+function done(id){
   //if someone isdone check if whole team is done and update the data in the table
   
   lastThrows.push(throws("done",id));
@@ -330,7 +331,6 @@ function hit(id){
     this.id = id;
   }
 
-var lastThrows;
 
 function undo(){
   //subtract from hits if was hit, change spreadsheet, if he was ready color the button
