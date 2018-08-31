@@ -334,7 +334,7 @@ function hit(id){
 
 function undo(){
   //subtract from hits if was hit, change spreadsheet, if he was ready color the button
-  
+  console.lo(lastThrows);
   var lastthrow = lastThrows.splice(-1);
   var col = Alphabet[lastthrow.id];
   console.log("called",lastthrow.type,lastthrow.id);
