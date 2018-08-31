@@ -197,9 +197,9 @@ function populateNames(Names,gameID){
     } else {
       hits2 -= -Names.values[2][i+6];
     }
-    console.log(Names.values[2][i]);
-    console.log(hits1);
-    console.log(hits2);
+    //console.log(Names.values[2][i]);
+    //console.log(hits1);
+    //console.log(hits2);
   }
 }
 
@@ -334,8 +334,10 @@ function hit(id){
 
 function undo(){
   //subtract from hits if was hit, change spreadsheet, if he was ready color the button
+  
   var lastthrow = lastThrows.splice(-1);
   var col = Alphabet[lastthrow.id];
+  console.log("called",lastthrow.type,lastthrow.id);
   if(lastthrow.type == "miss"){
     GameData[1][id] -= 1;
     updateCell(row+1,col,GameData[1][id]);
