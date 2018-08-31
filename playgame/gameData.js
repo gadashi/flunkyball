@@ -337,9 +337,9 @@ function hit(id){
 function undo(){
   //subtract from hits if was hit, change spreadsheet, if he was ready color the button
   console.log(lastThrows);
-  var lastthrow = lastThrows.splice(-1);
+  var lastthrow = lastThrows.pop();
   var col = Alphabet[lastthrow.id];
-  console.log("called",lastthrow.type,lastthrow.id);
+  console.log("called",lastthrow,lastthrow.type,lastthrow.id);
   if(lastthrow.type == "miss"){
     GameData[1][id] -= 1;
     updateCell(row+1,col,GameData[1][id]);
