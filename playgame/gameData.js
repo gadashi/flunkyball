@@ -288,8 +288,8 @@ function checkIfOver(){
 
 function done(id){
   //if someone isdone check if whole team is done and update the data in the table
-  
-  lastThrows.push(throws("done",id));
+  var done = { type:"done",_id: id };
+  lastThrows.push(done);
   var value = hits1;
   if(id > 6){
     value =  hits2;
@@ -311,7 +311,8 @@ function done(id){
 }
 
 function hit(id){
-  lastThrows.push(throws("hit",id));
+  var hit = { type:"hit",_id: id };
+  lastThrows.push(hit);
   if(id > 6){
     hits2++;
   }
