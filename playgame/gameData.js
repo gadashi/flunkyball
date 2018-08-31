@@ -279,7 +279,7 @@ function checkIfOver(){
   return 0;
 }
 
-var lastThrows;
+var lastThrows = [];
 
 function done(id){
   //if someone isdone check if whole team is done and update the data in the table
