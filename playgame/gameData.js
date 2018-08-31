@@ -343,7 +343,7 @@ function undo(){
   if(lastthrow.type == "miss"){
     GameData[1][lastthrow._id] -= 1;
     updateCell(row+1,col,GameData[1][lastthrow._id]);
-    document.getElementById("miss" + lastthrow._id).innerHTML = " &#10003; <br> (" + GameData[1][lastthrow._id + ')';
+    document.getElementById("miss" + lastthrow._id).innerHTML = " &#10003; <br> (" + GameData[1][lastthrow._id] + ')';
   }
   else if(lastthrow.type == "hit"){
     GameData[2][lastthrow._id] -= 1;
