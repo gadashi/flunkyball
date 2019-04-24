@@ -36,8 +36,8 @@ function initClient() {
     'scope': SCOPE,
     'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
   }).then(function() {
-    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
-    updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+    //gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
+    //updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
   });
 }
 
@@ -77,9 +77,9 @@ function displayGames(result,length){
         else{
         text += "<tr>";
         }
-        for (var cols = 0; cols < 13; cols++) { 
+        for (var cols = 0; cols < 13; cols++) {
           switch(cols){
-            case 0: 
+            case 0:
               text += "<th style='border-left: 3px solid black;'>";
               break;
             case 1:
@@ -91,9 +91,9 @@ function displayGames(result,length){
             case 12:
               text += "<th style=' border-right: 3px solid black;'>";
               break;
-            default: 
+            default:
               text += "<th>";
-          
+
           }
           if(result.values[rows2][cols] == undefined || result.values[rows2][cols] == ""){
             text += "0";
@@ -101,7 +101,7 @@ function displayGames(result,length){
           else{
             text += result.values[rows2][cols];
           }
-          text += '</th>';         
+          text += '</th>';
         }
       }
       text += "</tr>";
@@ -125,7 +125,7 @@ var div = document.getElementById("Spieler");
         else{
           text += result.values[rows][cols];
         }
-        text += '</th>';         
+        text += '</th>';
       }
       text += "</tr>";
     }
@@ -139,14 +139,14 @@ function showAll(id){
   if(id == "Spiele"){
     data = result.valueRanges[0];
     displayGames(data,data.values.length);
-    
+
   } else {
     data = result.valueRanges[1];
     displayPlayers(data,data.values.length);
-    
+
   }
 }
 
 window.onload = function(){
-  handleSignInClick()
+  loadData();
 }
